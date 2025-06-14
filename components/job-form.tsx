@@ -1,7 +1,6 @@
 "use client"
 
 import type React from "react"
-
 import { useState } from "react"
 import { motion } from "framer-motion"
 import { Sparkles } from "lucide-react"
@@ -21,6 +20,38 @@ export function JobForm({ onSubmit }: JobFormProps) {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
     onSubmit(formData)
+  }
+
+  const handlePasteExample = () => {
+    setFormData({
+      title: "Senior Full Stack Developer",
+      description: `We are seeking a Senior Full Stack Developer to join our dynamic team. The ideal candidate will have extensive experience in modern web technologies and a passion for building scalable applications.
+
+Key Responsibilities:
+• Develop and maintain web applications using React, Node.js, and TypeScript
+• Design and implement RESTful APIs and GraphQL endpoints
+• Work with cloud platforms (AWS, GCP) for deployment and scaling
+• Collaborate with cross-functional teams using Agile methodologies
+• Implement CI/CD pipelines and DevOps practices
+• Ensure code quality through testing and code reviews
+
+Required Skills:
+• 5+ years of experience in full-stack development
+• Proficiency in JavaScript, TypeScript, React, and Node.js
+• Experience with databases (PostgreSQL, MongoDB)
+• Knowledge of cloud platforms (AWS, GCP, Azure)
+• Familiarity with Docker and Kubernetes
+• Experience with version control (Git) and CI/CD
+• Strong problem-solving and communication skills
+
+Preferred Skills:
+• Experience with microservices architecture
+• Knowledge of GraphQL and REST API design
+• Familiarity with testing frameworks (Jest, Cypress)
+• Experience with monitoring and observability tools`,
+      salaryRange: 150000,
+      workType: "hybrid",
+    })
   }
 
   return (
@@ -58,15 +89,27 @@ export function JobForm({ onSubmit }: JobFormProps) {
 
           {/* Job Description */}
           <div>
-            <label className="block text-lg font-medium text-[var(--text-primary)] mb-3">Job Description</label>
+            <div className="flex justify-between items-center mb-3">
+              <label className="text-lg font-medium text-[var(--text-primary)]">Job Description</label>
+              <button
+                type="button"
+                onClick={handlePasteExample}
+                className="text-sm px-3 py-1 rounded-md bg-[var(--accent-primary)] text-white hover:opacity-80 transition-opacity"
+              >
+                Use Example
+              </button>
+            </div>
             <textarea
               value={formData.description}
               onChange={(e) => setFormData((prev) => ({ ...prev, description: e.target.value }))}
               placeholder="Paste your job description here... Include required skills, experience level, and key responsibilities."
-              rows={6}
+              rows={8}
               className="w-full p-4 glass-card text-[var(--text-primary)] placeholder-[var(--text-muted)] resize-none focus:outline-none focus:border-[var(--accent-blue)] transition-colors"
               required
             />
+            <p className="text-sm text-[var(--text-secondary)] mt-2">
+              💡 Tip: Include specific skills and technologies for better matching
+            </p>
           </div>
 
           {/* Salary Range */}
