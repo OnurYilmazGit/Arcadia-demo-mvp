@@ -1,0 +1,496 @@
+[
+  {
+    "id": "candidate_a1",
+    "skills": [
+      "Python",
+      "PyTorch",
+      "TensorFlow",
+      "Hugging Face",
+      "AWS SageMaker",
+      "GCP",
+      "Airflow",
+      "Kubernetes",
+      "SQL",
+      "MLOps"
+    ]
+  },
+  {
+    "id": "candidate_a2",
+    "skills": [
+      "Python",
+      "XGBoost",
+      "LightGBM",
+      "TensorFlow",
+      "GCP",
+      "Vertex AI",
+      "Apache Beam",
+      "BigQuery",
+      "Terraform",
+      "SQL",
+      "CI/CD"
+    ]
+  },
+  {
+    "id": "candidate_a3",
+    "skills": [
+      "Python",
+      "spaCy",
+      "Hugging Face",
+      "BERT",
+      "FastAPI",
+      "ElasticSearch",
+      "AWS",
+      "Docker",
+      "PostgreSQL",
+      "NLP"
+    ]
+  },
+  {
+    "id": "candidate_a4",
+    "skills": [
+      "Python",
+      "YOLOv5",
+      "OpenCV",
+      "TensorFlow",
+      "ROS",
+      "CUDA",
+      "Docker",
+      "C++",
+      "PyTorch",
+      "Computer Vision"
+    ]
+  },
+  {
+    "id": "candidate_a5",
+    "skills": [
+      "Python",
+      "Kubeflow",
+      "Airflow",
+      "Terraform",
+      "AWS",
+      "LightGBM",
+      "MLflow",
+      "Prometheus",
+      "Kafka",
+      "Spark"
+    ]
+  },
+  {
+    "id": "candidate_a6",
+    "skills": [
+      "Python",
+      "PyTorch",
+      "Federated Learning",
+      "SHAP",
+      "LIME",
+      "TensorFlow",
+      "Bioinformatics",
+      "Pandas",
+      "Scikit-learn"
+    ]
+  },
+  {
+    "id": "dataeng_candidate_a1",
+    "skills": [
+      "Apache Kafka",
+      "Spark",
+      "Delta Lake",
+      "Airflow",
+      "BigQuery",
+      "Looker",
+      "Apache Nifi",
+      "Python",
+      "ETL",
+      "Data Governance"
+    ]
+  },
+  {
+    "id": "dataeng_candidate_a2",
+    "skills": [
+      "Snowflake",
+      "dbt",
+      "Python",
+      "Spark",
+      "Talend",
+      "Tableau",
+      "GDPR",
+      "SQL",
+      "Data Warehousing",
+      "ETL"
+    ]
+  },
+  {
+    "id": "dataeng_candidate_a3",
+    "skills": [
+      "Flink",
+      "Kinesis",
+      "Kafka",
+      "Spark",
+      "DynamoDB",
+      "Python",
+      "AWS",
+      "MQTT",
+      "Telemetry",
+      "Streaming Analytics"
+    ]
+  },
+  {
+    "id": "dataeng_candidate_a4",
+    "skills": [
+      "Redshift",
+      "Spark",
+      "Airflow",
+      "HIPAA",
+      "HL7",
+      "ETL",
+      "Python",
+      "SQL",
+      "AWS",
+      "Data Anonymization"
+    ]
+  },
+  {
+    "id": "dataeng_candidate_a5",
+    "skills": [
+      "Airflow",
+      "Redshift",
+      "Kafka",
+      "Flink",
+      "Python",
+      "Metabase",
+      "MQTT",
+      "ETL",
+      "SQL",
+      "IoT Integration"
+    ]
+  },
+  {
+    "id": "dataeng_candidate_a6",
+    "skills": [
+      "Apache Hudi",
+      "Kafka",
+      "Apache Iceberg",
+      "Parquet",
+      "SparkSQL",
+      "Hadoop",
+      "Data Lakes",
+      "CI/CD",
+      "Schema Registry",
+      "Big Data Ops"
+    ]
+  },
+  {
+    "id": "devops_candidate_a1",
+    "skills": [
+      "Terraform",
+      "Kubernetes",
+      "GCP",
+      "AWS",
+      "Jenkins",
+      "Prometheus",
+      "Grafana",
+      "Ansible",
+      "Python",
+      "Bash"
+    ]
+  },
+  {
+    "id": "devops_candidate_a2",
+    "skills": [
+      "Azure",
+      "AKS",
+      "Keycloak",
+      "GitLab CI",
+      "PowerShell",
+      "VNET",
+      "ISO 27001",
+      "Terraform",
+      "Docker",
+      "Linux"
+    ]
+  },
+  {
+    "id": "devops_candidate_a3",
+    "skills": [
+      "Kubernetes",
+      "Istio",
+      "Prometheus",
+      "Grafana",
+      "Blue/Green Deployments",
+      "GCP",
+      "Terraform",
+      "Chaos Engineering",
+      "Linux",
+      "Service Mesh"
+    ]
+  },
+  {
+    "id": "devops_candidate_a4",
+    "skills": [
+      "GitOps",
+      "ArgoCD",
+      "Helm",
+      "Pulumi",
+      "K3s",
+      "Ansible",
+      "PXE",
+      "Kubernetes",
+      "Zabbix",
+      "CI/CD"
+    ]
+  },
+  {
+    "id": "devops_candidate_a5",
+    "skills": [
+      "OpenSCAP",
+      "Clair",
+      "SPIFFE",
+      "SPIRE",
+      "OpenStack",
+      "ELK",
+      "CI/CD",
+      "Ansible",
+      "Zero Trust",
+      "Compliance"
+    ]
+  },
+  {
+    "id": "devops_candidate_a6",
+    "skills": [
+      "MLflow",
+      "Ray",
+      "Kubernetes",
+      "Helm",
+      "Ansible",
+      "Terraform",
+      "GCP",
+      "MinIO",
+      "GPU Clusters",
+      "CI/CD"
+    ]
+  },
+  {
+    "id": "embedded_candidate_a1",
+    "skills": [
+      "C",
+      "C++",
+      "RTOS",
+      "STM32",
+      "CAN Bus",
+      "FreeRTOS",
+      "Firmware",
+      "Sensor Fusion",
+      "Embedded Linux",
+      "JTAG"
+    ]
+  },
+  {
+    "id": "embedded_candidate_a2",
+    "skills": [
+      "ESP32",
+      "Zigbee",
+      "Z-Wave",
+      "MQTT",
+      "BLE Mesh",
+      "Embedded Linux",
+      "Low Power IoT",
+      "OTA",
+      "Node.js",
+      "C"
+    ]
+  },
+  {
+    "id": "embedded_candidate_a3",
+    "skills": [
+      "TensorFlow Lite",
+      "Jetson",
+      "ARM NN",
+      "Edge AI",
+      "DSP",
+      "CNN Quantization",
+      "C",
+      "UART",
+      "Real-Time ML",
+      "MCU Deployment"
+    ]
+  },
+  {
+    "id": "embedded_candidate_a4",
+    "skills": [
+      "Embedded Linux",
+      "OpenWRT",
+      "Yocto",
+      "Kernel Modules",
+      "Secure Boot",
+      "OTA",
+      "Bootloaders",
+      "C",
+      "Drivers",
+      "Networking Firmware"
+    ]
+  },
+  {
+    "id": "embedded_candidate_a5",
+    "skills": [
+      "C",
+      "AUTOSAR",
+      "CAN",
+      "LIN",
+      "ISO 26262",
+      "ASIL-D",
+      "MCUs",
+      "Functional Safety",
+      "CANalyzer",
+      "ADAS"
+    ]
+  },
+  {
+    "id": "embedded_candidate_a6",
+    "skills": [
+      "DSP",
+      "TI DSPs",
+      "I2S",
+      "Fixed-Point",
+      "Echo Cancellation",
+      "Bare-Metal",
+      "C",
+      "RTOS",
+      "Audio Firmware",
+      "SPI"
+    ]
+  },
+  {
+    "id": "full_stack_candidate_a1",
+    "skills": [
+      "JavaScript",
+      "React",
+      "Node.js",
+      "PostgreSQL",
+      "AWS",
+      "TypeScript",
+      "Docker",
+      "CI/CD",
+      "REST",
+      "GraphQL"
+    ]
+  },
+  {
+    "id": "full_stack_candidate_a2",
+    "skills": [
+      "Next.js",
+      "TypeScript",
+      "Vue.js",
+      "Django",
+      "Flask",
+      "PostgreSQL",
+      "Docker",
+      "Firebase",
+      "Git",
+      "Microservices"
+    ]
+  },
+  {
+    "id": "full_stack_candidate_a3",
+    "skills": [
+      "Vue.js",
+      "React",
+      "Node.js",
+      "GraphQL",
+      "AWS Lambda",
+      "Stripe API",
+      "MongoDB",
+      "Redis",
+      "Docker",
+      "PHP"
+    ]
+  },
+  {
+    "id": "full_stack_candidate_a4",
+    "skills": [
+      "React",
+      "Angular",
+      "Django REST",
+      "Azure",
+      "PostgreSQL",
+      "Bootstrap",
+      "GitHub Actions",
+      "CI/CD",
+      "Data Visualization"
+    ]
+  },
+  {
+    "id": "full_stack_candidate_a5",
+    "skills": [
+      "React",
+      "TypeScript",
+      "Redis",
+      "WebSockets",
+      "Docker",
+      "Nx Monorepo",
+      "Cypress",
+      "Jenkins",
+      "PostgreSQL",
+      "Microservices"
+    ]
+  },
+  {
+    "id": "full_stack_candidate_a6",
+    "skills": [
+      "Vue.js",
+      "Laravel",
+      "MySQL",
+      "WCAG",
+      "REST API",
+      "PDFKit",
+      "CI/CD",
+      "Accessibility",
+      "Cybersecurity Basics",
+      "Docker"
+    ]
+  },
+  {
+    "id": "security_candidate_a1",
+    "skills": [
+      "Snyk",
+      "SonarQube",
+      "OWASP",
+      "CI/CD Security",
+      "Penetration Testing",
+      "API Security",
+      "Threat Modeling",
+      "DAST",
+      "SAST",
+      "Burp Suite"
+    ]
+  },
+  {
+    "id": "security_candidate_a2",
+    "skills": [
+      "AWS",
+      "GCP",
+      "IAM",
+      "CloudTrail",
+      "Security Hub",
+      "CIS Benchmarks",
+      "S3 Encryption",
+      "GuardDuty",
+      "Firewalls",
+      "Cloud Compliance"
+    ]
+  },
+  {
+    "id": "security_candidate_a3",
+    "skills": [
+      "Penetration Testing",
+      "CAN Bus",
+      "Bluetooth Security",
+      "Ghidra",
+      "IDA Pro",
+      "Fuzzing",
+      "Firmware Analysis",
+      "Reverse Engineering",
+      "Red Team",
+      "Automotive Security"
+    ]
+  }
+]
