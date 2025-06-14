@@ -9,22 +9,25 @@ interface MatchingAnimationProps {
 }
 
 const STAGES = [
-  { key: "scanning", message: "Analyzing 50,000+ candidate profiles...", duration: 1000 },
-  { key: "analyzing", message: "Matching skills & experience requirements...", duration: 800 },
-  { key: "matching", message: "Ranking candidates by compatibility...", duration: 700 },
+  { key: "scanning", message: "Scanning 50,000+ candidate profiles...", duration: 1200 },
+  { key: "analyzing", message: "Matching skills & experience requirements...", duration: 1000 },
+  { key: "ranking", message: "Ranking candidates by compatibility...", duration: 800 },
+  { key: "finalizing", message: "Finalizing top matches...", duration: 500 },
 ] as const
 
 export function MatchingAnimation({ isVisible, onComplete }: MatchingAnimationProps) {
   const [currentStage, setCurrentStage] = useState(0)
   const [progress, setProgress] = useState(0)
 
-  const particles = useMemo(() => Array.from({ length: 20 }, (_, i) => i), [])
+  const particles = useMemo(() => Array.from({ length: 25 }, (_, i) => i), [])
+  const totalDuration = STAGES.reduce((sum, stage) => sum + stage.duration, 0)
 
   useEffect(() => {
     if (!isVisible) return
 
     let stageTimer: NodeJS.Timeout
-    let progressTimer: NodeJS.Timeout
+    let progressInterval: NodeJS.Timeout
+    let overallProgress = 0
 
     const runStages = async () => {
       for (let i = 0; i < STAGES.length; i++) {
@@ -33,24 +36,28 @@ export function MatchingAnimation({ isVisible, onComplete }: MatchingAnimationPr
           stageTimer = setTimeout(resolve, STAGES[i].duration)
         })
       }
-      onComplete()
+      // Ensure progress reaches 100% before calling onComplete
+      setProgress(100)
+      setTimeout(onComplete, 200) // Short delay for 100% to show
     }
 
     const updateProgress = () => {
-      setProgress((prev) => {
-        if (prev >= 100) return 100
-        return prev + 2
-      })
+      overallProgress += 50 // ms per interval
+      const currentProgress = Math.min(100, (overallProgress / totalDuration) * 100)
+      setProgress(currentProgress)
+      if (currentProgress >= 100) {
+        clearInterval(progressInterval)
+      }
     }
 
     runStages()
-    progressTimer = setInterval(updateProgress, 50)
+    progressInterval = setInterval(updateProgress, 50)
 
     return () => {
       clearTimeout(stageTimer)
-      clearInterval(progressTimer)
+      clearInterval(progressInterval)
     }
-  }, [isVisible, onComplete])
+  }, [isVisible, onComplete, totalDuration])
 
   if (!isVisible) return null
 
@@ -60,68 +67,65 @@ export function MatchingAnimation({ isVisible, onComplete }: MatchingAnimationPr
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         exit={{ opacity: 0 }}
-        className="fixed inset-0 bg-black/95 backdrop-blur-sm z-50 flex items-center justify-center"
+        className="fixed inset-0 bg-[var(--bg-primary)]/90 backdrop-blur-md z-[100] flex items-center justify-center"
       >
         <div className="text-center space-y-8">
-          {/* Particle Animation */}
-          <div className="relative w-32 h-32 mx-auto">
+          <div className="relative w-36 h-36 mx-auto">
             <motion.div
-              className="absolute inset-0 rounded-full border-2 border-[#5E8BFF]/30"
+              className="absolute inset-0 rounded-full border-2 border-[var(--accent-blue)]/40"
               animate={{ rotate: 360 }}
-              transition={{ duration: 3, repeat: Number.POSITIVE_INFINITY, ease: "linear" }}
+              transition={{ duration: 4, repeat: Number.POSITIVE_INFINITY, ease: "linear" }}
             />
             <motion.div
-              className="absolute inset-2 rounded-full border-2 border-[#FFC15E]/30"
+              className="absolute inset-2 rounded-full border-2 border-[var(--accent-gold)]/40"
               animate={{ rotate: -360 }}
-              transition={{ duration: 2, repeat: Number.POSITIVE_INFINITY, ease: "linear" }}
+              transition={{ duration: 3, repeat: Number.POSITIVE_INFINITY, ease: "linear" }}
             />
 
             {particles.map((particle) => (
               <motion.div
                 key={particle}
-                className="absolute w-2 h-2 bg-gradient-to-r from-[#5E8BFF] to-[#FFC15E] rounded-full"
+                className="absolute w-1.5 h-1.5 bg-gradient-to-r from-[var(--accent-blue)] to-[var(--accent-gold)] rounded-full"
                 style={{ left: "50%", top: "50%" }}
                 animate={{
-                  x: [0, Math.cos(particle * 0.314) * 60],
-                  y: [0, Math.sin(particle * 0.314) * 60],
-                  scale: [0, 1, 0],
-                  opacity: [0, 1, 0],
+                  x: [0, Math.cos(particle * ((2 * Math.PI) / particles.length)) * (60 + Math.random() * 10)],
+                  y: [0, Math.sin(particle * ((2 * Math.PI) / particles.length)) * (60 + Math.random() * 10)],
+                  scale: [0, 1 + Math.random() * 0.5, 0],
+                  opacity: [0, 0.8, 0],
                 }}
                 transition={{
-                  duration: 2,
+                  duration: 2.5 + Math.random(),
                   repeat: Number.POSITIVE_INFINITY,
-                  delay: particle * 0.1,
-                  ease: "easeInOut",
+                  delay: particle * 0.08,
+                  ease: "circOut",
                 }}
               />
             ))}
-
-            {/* Central Orb */}
             <motion.div
-              className="absolute inset-6 rounded-full bg-gradient-to-r from-[#5E8BFF] to-[#FFC15E]"
-              animate={{ scale: [1, 1.2, 1], opacity: [0.7, 1, 0.7] }}
-              transition={{ duration: 1.5, repeat: Number.POSITIVE_INFINITY, ease: "easeInOut" }}
+              className="absolute inset-8 rounded-full bg-gradient-to-br from-[var(--accent-blue)]/70 to-[var(--accent-gold)]/70"
+              animate={{ scale: [1, 1.15, 1], opacity: [0.6, 0.9, 0.6] }}
+              transition={{ duration: 1.8, repeat: Number.POSITIVE_INFINITY, ease: "easeInOut" }}
             />
           </div>
 
-          {/* Progress Text */}
           <motion.div
             key={currentStage}
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
-            className="space-y-4"
+            transition={{ duration: 0.3 }}
+            className="space-y-3"
           >
-            <h2 className="text-2xl font-bold text-white">{STAGES[currentStage]?.message}</h2>
-            <div className="w-64 bg-gray-700 rounded-full h-2 mx-auto">
+            <h2 className="text-2xl font-semibold text-[var(--text-primary)]">{STAGES[currentStage]?.message}</h2>
+            <div className="w-72 bg-[var(--glass-border)] rounded-full h-2.5 mx-auto overflow-hidden">
               <motion.div
-                className="bg-gradient-to-r from-[#5E8BFF] to-[#FFC15E] h-2 rounded-full"
+                className="bg-gradient-to-r from-[var(--accent-blue)] to-[var(--accent-gold)] h-full"
                 initial={{ width: 0 }}
-                animate={{ width: `${Math.min(progress, 100)}%` }}
-                transition={{ duration: 0.1 }}
+                animate={{ width: `${progress}%` }}
+                transition={{ duration: 0.15, ease: "linear" }}
               />
             </div>
-            <p className="text-gray-400">{Math.min(progress, 100)}% complete</p>
+            <p className="text-[var(--text-secondary)]">{Math.round(progress)}% complete</p>
           </motion.div>
         </div>
       </motion.div>

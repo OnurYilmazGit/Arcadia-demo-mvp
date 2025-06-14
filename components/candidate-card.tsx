@@ -1,9 +1,8 @@
 "use client"
 
 import type React from "react"
-
 import { motion } from "framer-motion"
-import { MapPin, Star } from "lucide-react"
+import { MapPin, Star, CheckSquare, Square } from "lucide-react"
 import { candidateService } from "@/lib/candidate-service"
 
 interface CandidateCardProps {
@@ -20,96 +19,56 @@ interface CandidateCardProps {
   }
   onClick: () => void
   isSelected: boolean
-  matchScore?: number
   matchedSkills?: string[]
   delay?: number
   rank?: number
+  onToggleCompare: (candidateId: string) => void
+  isComparing: boolean
 }
 
 export function CandidateCard({
   candidate,
   onClick,
   isSelected,
-  matchScore,
   matchedSkills,
   delay = 0,
   rank = 1,
+  onToggleCompare,
+  isComparing,
 }: CandidateCardProps) {
   const isShortlisted = candidateService.shortlistManager.isShortlisted(candidate.id)
 
   const handleShortlistClick = (e: React.MouseEvent) => {
     e.stopPropagation()
-    if (isShortlisted) {
-      candidateService.shortlistManager.removeFromShortlist(candidate.id)
-    } else {
-      candidateService.shortlistManager.addToShortlist(candidate.id)
-    }
-    // Force re-render
-    window.dispatchEvent(new CustomEvent("shortlistUpdated"))
+    candidateService.shortlistManager.toggleShortlist(candidate.id)
   }
 
-  // Generate gender-appropriate icon
-  const getGenderIcon = (name: string) => {
-    const femaleNames = [
-      "sarah",
-      "emily",
-      "maria",
-      "jennifer",
-      "lisa",
-      "rachel",
-      "amanda",
-      "michelle",
-      "nicole",
-      "jessica",
-      "stephanie",
-      "karen",
-      "sandra",
-      "donna",
-      "melissa",
-    ]
-    const firstName = name.toLowerCase().split(" ")[0]
-    return femaleNames.includes(firstName) ? "👩‍💼" : "👨‍💼"
+  const handleCompareClick = (e: React.MouseEvent) => {
+    e.stopPropagation()
+    onToggleCompare(candidate.id)
   }
+
+  const avatarUrl = candidate.avatar || "/professional-person.png"
 
   const getMatchLabel = (rank: number): string => {
-    switch (rank) {
-      case 1:
-        return "Top Match"
-      case 2:
-      case 3:
-        return "Excellent Match"
-      case 4:
-        return "Great Match"
-      case 5:
-      case 6:
-        return "Good Match"
-      default:
-        return "Good Match"
-    }
+    if (rank === 1) return "Top Match"
+    if (rank <= 3) return "Excellent Match"
+    if (rank <= 5) return "Great Match"
+    return "Good Match"
   }
 
   const getMatchLabelColor = (rank: number): string => {
-    switch (rank) {
-      case 1:
-        return "bg-gradient-to-r from-[var(--accent-gold)] to-[var(--accent-gold)]/80 text-white"
-      case 2:
-      case 3:
-        return "bg-gradient-to-r from-[var(--success-green)] to-[var(--success-green)]/80 text-white"
-      case 4:
-        return "bg-gradient-to-r from-[var(--accent-blue)] to-[var(--accent-blue)]/80 text-white"
-      case 5:
-      case 6:
-        return "bg-gradient-to-r from-[var(--text-secondary)] to-[var(--text-secondary)]/80 text-white"
-      default:
-        return "bg-gradient-to-r from-[var(--text-secondary)] to-[var(--text-secondary)]/80 text-white"
-    }
+    if (rank === 1) return "bg-gradient-to-r from-[var(--accent-gold)] to-[var(--accent-gold)]/80 text-white"
+    if (rank <= 3) return "bg-gradient-to-r from-[var(--success-green)] to-[var(--success-green)]/80 text-white"
+    if (rank <= 5) return "bg-gradient-to-r from-[var(--accent-blue)] to-[var(--accent-blue)]/80 text-white"
+    return "bg-gradient-to-r from-[var(--text-secondary)] to-[var(--text-secondary)]/80 text-white"
   }
 
   return (
     <motion.div
-      className={`relative glass-card p-6 cursor-pointer transition-all overflow-hidden group ${
-        isSelected ? "border-[var(--accent-blue)] shadow-lg" : ""
-      }`}
+      className={`relative glass-card p-6 cursor-pointer transition-all overflow-hidden group border ${
+        isSelected ? "border-[var(--accent-blue)] shadow-lg" : "border-transparent"
+      } ${isComparing ? "ring-2 ring-offset-2 ring-offset-[var(--bg-primary)] ring-[var(--accent-primary)]" : ""}`}
       onClick={onClick}
       whileHover={{ y: -4, scale: 1.02 }}
       whileTap={{ scale: 0.98 }}
@@ -117,77 +76,80 @@ export function CandidateCard({
       animate={{ opacity: 1, y: 0 }}
       transition={{ delay }}
     >
-      {/* Subtle moving light effect */}
-      <div className="absolute inset-0 opacity-30">
+      <div className="absolute inset-0 opacity-20 group-hover:opacity-30 transition-opacity duration-300">
         <motion.div
-          className="absolute w-32 h-32 bg-gradient-to-r from-transparent via-white/10 to-transparent -skew-x-12"
-          animate={{
-            x: [-100, 400],
-          }}
-          transition={{
-            duration: 3,
-            repeat: Number.POSITIVE_INFINITY,
-            repeatDelay: 5,
-            ease: "linear",
-          }}
+          className="absolute w-48 h-48 bg-gradient-to-r from-transparent via-white/5 to-transparent -skew-x-12"
+          animate={{ x: [-150, 450] }}
+          transition={{ duration: 4, repeat: Number.POSITIVE_INFINITY, repeatDelay: 3, ease: "linear" }}
         />
       </div>
 
-      {/* Shortlist button */}
       <button
         onClick={handleShortlistClick}
-        className={`absolute top-4 right-4 p-2 rounded-full transition-all z-10 ${
+        className={`absolute top-3 right-3 p-2 rounded-full transition-all z-10 ${
           isShortlisted
-            ? "bg-[var(--accent-gold)] text-white shadow-lg"
-            : "bg-white/20 text-[var(--text-secondary)] hover:bg-white/30"
+            ? "bg-[var(--accent-gold)] text-white shadow-md"
+            : "bg-white/10 text-[var(--text-secondary)] hover:bg-white/20"
         }`}
+        aria-label={isShortlisted ? "Remove from shortlist" : "Add to shortlist"}
       >
         <Star className={`w-4 h-4 ${isShortlisted ? "fill-current" : ""}`} />
       </button>
 
-      {/* Header */}
-      <div className="flex items-start justify-between mb-4 pr-12">
+      {/* Redesigned Compare Button */}
+      <button
+        onClick={handleCompareClick}
+        className={`absolute top-3 left-3 p-1.5 rounded-full z-10 transition-all duration-200 ${
+          isComparing
+            ? "bg-[var(--accent-primary)]/80 text-white"
+            : "bg-transparent text-transparent group-hover:bg-black/20 group-hover:text-[var(--text-primary)]"
+        }`}
+        aria-label={isComparing ? "Remove from comparison" : "Add to comparison"}
+      >
+        {isComparing ? <CheckSquare className="w-5 h-5" /> : <Square className="w-5 h-5" />}
+      </button>
+
+      <div className="flex items-start justify-between mb-4">
         <div className="flex items-center gap-3">
           <div className="relative">
-            <div className="w-12 h-12 rounded-full bg-gradient-to-br from-[var(--accent-blue)] to-[var(--accent-gold)] p-0.5">
-              <div className="w-full h-full rounded-full bg-white/90 flex items-center justify-center text-2xl">
-                {getGenderIcon(candidate.name)}
-              </div>
+            <div className="w-12 h-12 rounded-full bg-gradient-to-br from-[var(--accent-blue)] to-[var(--accent-gold)] p-0.5 shadow-sm">
+              <img
+                src={avatarUrl || "/placeholder.svg"}
+                alt={`${candidate.name} avatar`}
+                className="w-full h-full rounded-full bg-[var(--bg-secondary)] object-cover"
+                onError={(e) => (e.currentTarget.src = "/professional-person.png")}
+              />
             </div>
-            <div className="absolute -bottom-1 -right-1 w-3 h-3 bg-[var(--success-green)] rounded-full border border-[var(--bg-primary)]" />
           </div>
           <div>
             <h3 className="font-semibold text-[var(--text-primary)]">{candidate.name}</h3>
             <p className="text-sm text-[var(--text-secondary)]">{candidate.title}</p>
           </div>
         </div>
-        {/* Match Label instead of percentage */}
-        <div className={`px-3 py-1 rounded-full text-xs font-medium ${getMatchLabelColor(rank)}`}>
+        <div className={`px-2.5 py-1 rounded-full text-xs font-medium whitespace-nowrap ${getMatchLabelColor(rank)}`}>
           {getMatchLabel(rank)}
         </div>
       </div>
 
-      {/* Location & Experience */}
-      <div className="flex items-center gap-4 mb-4 text-sm text-[var(--text-secondary)]">
+      <div className="flex items-center gap-3 mb-4 text-sm text-[var(--text-secondary)]">
         <div className="flex items-center gap-1">
-          <MapPin className="w-3 h-3" />
-          {candidate.location || "Munich, Germany"}
+          <MapPin className="w-3.5 h-3.5" />
+          {candidate.location || "Not specified"}
         </div>
         <span>•</span>
-        <span>{candidate.experience || "3+ years"}</span>
+        <span>{candidate.experience || "N/A"}</span>
       </div>
 
-      {/* Skills */}
-      <div className="flex flex-wrap gap-2 mb-4">
+      <div className="flex flex-wrap gap-1.5 mb-4">
         {candidate.skills.slice(0, 3).map((skill) => {
-          const isMatched = matchedSkills?.includes(skill.toLowerCase())
+          const isMatched = matchedSkills?.map((s) => s.toLowerCase()).includes(skill.toLowerCase())
           return (
             <span
               key={skill}
-              className={`skill-tag ${
+              className={`skill-tag text-xs px-2 py-0.5 ${
                 isMatched
                   ? "bg-[var(--success-green)]/20 text-[var(--success-green)] border-[var(--success-green)]/30"
-                  : ""
+                  : "bg-[var(--glass-bg)] text-[var(--text-muted)] border-[var(--glass-border)]"
               }`}
             >
               {skill}
@@ -195,14 +157,12 @@ export function CandidateCard({
           )
         })}
         {candidate.skills.length > 3 && (
-          <span className="skill-tag bg-[var(--text-muted)]/20 text-[var(--text-muted)] border-[var(--text-muted)]/30">
-            +{candidate.skills.length - 3}
+          <span className="skill-tag text-xs px-2 py-0.5 bg-[var(--glass-bg)] text-[var(--text-muted)] border-[var(--glass-border)]">
+            +{candidate.skills.length - 3} more
           </span>
         )}
       </div>
-
-      {/* Salary */}
-      <div className="text-sm font-medium text-[var(--text-primary)]">{candidate.salary || "€70,000 - €110,000"}</div>
+      <div className="text-sm font-medium text-[var(--text-primary)]">{candidate.salary || "Not specified"}</div>
     </motion.div>
   )
 }

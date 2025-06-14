@@ -1,15 +1,26 @@
 "use client"
 
-import { useState, useEffect } from "react"
+import { useState, useEffect, useMemo } from "react"
 import { motion, AnimatePresence } from "framer-motion"
-import { Star } from "lucide-react"
+import { Star, Users, ArrowUpDown, Filter, SearchIcon } from "lucide-react" // Renamed Search to SearchIcon
 import { JobForm } from "@/components/job-form"
-import { LoadingScreen } from "@/components/ui/loading-screen"
+// import { LoadingScreen } from "@/components/ui/loading-screen"; // We'll use MatchingAnimation directly
+import { MatchingAnimation } from "@/components/matching-animation"
 import { CandidateProfile } from "@/components/candidate-profile"
 import { CandidateCard } from "@/components/candidate-card"
 import { ShortlistModal } from "@/components/shortlist-modal"
+import { CompareCandidatesModal } from "@/components/compare-candidates-modal"
 import { candidateService, type MatchedCandidate } from "@/lib/candidate-service"
 import type { Candidate } from "@/types/candidate"
+import { Button } from "@/components/ui/button"
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+  DropdownMenuSeparator,
+} from "@/components/ui/dropdown-menu"
+import { parseExperience, getUniqueLocations } from "@/lib/utils"
 
 type AppState = "form" | "loading" | "results" | "error"
 
@@ -20,139 +31,182 @@ interface JobData {
   workType: "remote" | "onsite" | "hybrid"
 }
 
+type SortByType = "matchQuality" | "nameAZ" | "nameZA" | "expLowHigh" | "expHighLow"
+
 export default function HomePage() {
   const [appState, setAppState] = useState<AppState>("form")
-  const [candidates, setCandidates] = useState<Candidate[]>([])
+  const [rawCandidatesData, setRawCandidatesData] = useState<MatchedCandidate[]>([])
+
   const [selectedCandidate, setSelectedCandidate] = useState<Candidate | null>(null)
   const [selectedCandidateRank, setSelectedCandidateRank] = useState<number>(1)
   const [shortlistedCandidates, setShortlistedCandidates] = useState<Set<string>>(new Set())
   const [jobData, setJobData] = useState<JobData | null>(null)
-  const [matchedCandidatesData, setMatchedCandidatesData] = useState<MatchedCandidate[]>([])
   const [error, setError] = useState<string | null>(null)
   const [showShortlistModal, setShowShortlistModal] = useState(false)
 
-  // Listen for shortlist updates
+  const [locationFilter, setLocationFilter] = useState<string>("Any")
+  const [sortBy, setSortBy] = useState<SortByType>("matchQuality")
+  const [candidatesToCompare, setCandidatesToCompare] = useState<Set<string>>(new Set())
+  const [showCompareModal, setShowCompareModal] = useState(false)
+  const [availableLocations, setAvailableLocations] = useState<string[]>([])
+
   useEffect(() => {
     const handleShortlistUpdate = () => {
-      const shortlistedIds = candidateService.shortlistManager.getShortlistedIds()
-      setShortlistedCandidates(new Set(shortlistedIds))
+      setShortlistedCandidates(new Set(candidateService.shortlistManager.getShortlistedIds()))
     }
-
     window.addEventListener("shortlistUpdated", handleShortlistUpdate)
-    handleShortlistUpdate() // Initial load
-
-    return () => {
-      window.removeEventListener("shortlistUpdated", handleShortlistUpdate)
-    }
+    handleShortlistUpdate()
+    return () => window.removeEventListener("shortlistUpdated", handleShortlistUpdate)
   }, [])
 
   const handleJobSubmit = async (data: JobData) => {
-    console.log("Job submitted:", data)
     setJobData(data)
     setAppState("loading")
     setError(null)
-
+    setRawCandidatesData([]) // Clear previous results
     try {
-      console.log("Starting candidate matching...")
-      const matchedCandidates = await candidateService.matchCandidatesWithJob(data.description, 6)
-
-      console.log("Matched candidates:", matchedCandidates)
-
+      // Simulate API call delay for animation
+      // await new Promise(resolve => setTimeout(resolve, 3500)); // Keep this if MatchingAnimation handles its own timing
+      const matchedCandidates = await candidateService.matchCandidatesWithJob(data.description, 20)
       if (matchedCandidates.length === 0) {
-        setError("No candidates found matching your criteria. Please try a different job description.")
-        setAppState("error")
-        return
+        setError("No candidates found matching your criteria.")
+        // setAppState("error"); // Let onComplete handle this
+        setRawCandidatesData([]) // Ensure it's empty
+      } else {
+        setRawCandidatesData(matchedCandidates)
+        setAvailableLocations(getUniqueLocations(matchedCandidates))
       }
-
-      setMatchedCandidatesData(matchedCandidates)
-      const uiCandidates = matchedCandidates.map((mc) => candidateService.convertToUIFormat(mc))
-
-      setCandidates(uiCandidates)
-      setSelectedCandidate(uiCandidates[0] || null)
-      setSelectedCandidateRank(1)
-
-      console.log("UI candidates prepared:", uiCandidates.length)
-    } catch (error) {
-      console.error("Failed to match candidates:", error)
+      // setAppState("results"); // Transition handled by onComplete from MatchingAnimation
+    } catch (err) {
+      console.error("Failed to match candidates:", err)
       setError("Failed to load candidate data. Please try again.")
-      setAppState("error")
+      setRawCandidatesData([]) // Ensure it's empty
+      // setAppState("error"); // Transition handled by onComplete
     }
   }
 
   const handleLoadingComplete = () => {
-    if (candidates.length > 0) {
+    if (rawCandidatesData.length > 0) {
       setAppState("results")
     } else {
+      // If error was set during fetch, it will be used. Otherwise, set a generic one.
+      if (!error) setError("No candidates found after processing.")
       setAppState("error")
     }
   }
 
-  const handleCandidateSelect = (candidate: Candidate, rank: number) => {
+  const filteredAndSortedCandidates = useMemo(() => {
+    let processed = [...rawCandidatesData]
+    if (locationFilter !== "Any") {
+      processed = processed.filter((c) => c.location?.toLowerCase().includes(locationFilter.toLowerCase()))
+    }
+    switch (sortBy) {
+      case "nameAZ":
+        processed.sort((a, b) => a.name.localeCompare(b.name))
+        break
+      case "nameZA":
+        processed.sort((a, b) => b.name.localeCompare(a.name))
+        break
+      case "expLowHigh":
+        processed.sort((a, b) => parseExperience(a.experience) - parseExperience(b.experience))
+        break
+      case "expHighLow":
+        processed.sort((a, b) => parseExperience(b.experience) - parseExperience(a.experience))
+        break
+      default:
+        processed.sort((a, b) => b.matchPercentage - a.matchPercentage)
+        break
+    }
+    return processed
+  }, [rawCandidatesData, locationFilter, sortBy])
+
+  const displayCandidates = useMemo(() => {
+    return filteredAndSortedCandidates.slice(0, 6).map((mc) => candidateService.convertToUIFormat(mc))
+  }, [filteredAndSortedCandidates])
+
+  useEffect(() => {
+    if (appState === "results" && displayCandidates.length > 0) {
+      setSelectedCandidate(displayCandidates[0])
+      setSelectedCandidateRank(1)
+    } else if (appState === "results" && displayCandidates.length === 0) {
+      setSelectedCandidate(null)
+    }
+  }, [displayCandidates, appState])
+
+  const handleCandidateSelect = (candidate: Candidate) => {
     setSelectedCandidate(candidate)
-    setSelectedCandidateRank(rank)
+    const displayIndex = displayCandidates.findIndex((c) => c.id === candidate.id)
+    setSelectedCandidateRank(displayIndex + 1)
   }
 
-  const handleShortlist = (candidateId: string) => {
-    if (candidateService.shortlistManager.isShortlisted(candidateId)) {
-      candidateService.shortlistManager.removeFromShortlist(candidateId)
-    } else {
-      candidateService.shortlistManager.addToShortlist(candidateId)
-    }
-
-    const shortlistedIds = candidateService.shortlistManager.getShortlistedIds()
-    setShortlistedCandidates(new Set(shortlistedIds))
+  const handleShortlistToggle = (candidateId: string) => {
+    candidateService.shortlistManager.toggleShortlist(candidateId)
   }
 
   const handleDownloadResume = (candidateId: string) => {
-    const resumeUrl = candidateService.getResumeUrl(candidateId)
+    const resumeUrl = candidateService.getResumeUrl(candidateId) // This should point to a PDF
     const link = document.createElement("a")
     link.href = resumeUrl
-    link.download = `${candidateId}_resume.docx`
+    link.download = `${candidateId}_resume.pdf`
     link.target = "_blank"
     document.body.appendChild(link)
     link.click()
     document.body.removeChild(link)
   }
 
-  const getMatchedCandidateData = (candidateId: string): MatchedCandidate | undefined => {
-    return matchedCandidatesData.find((mc) => mc.id === candidateId)
+  const getMatchedCandidateDetails = (candidateId: string): MatchedCandidate | undefined => {
+    return rawCandidatesData.find((mc) => mc.id === candidateId)
   }
+
+  const handleToggleCompare = (candidateId: string) => {
+    setCandidatesToCompare((prev) => {
+      const newSet = new Set(prev)
+      if (newSet.has(candidateId)) newSet.delete(candidateId)
+      else newSet.add(candidateId)
+      return newSet
+    })
+  }
+
+  const compareModalCandidates = useMemo(() => {
+    return rawCandidatesData.filter((c) => candidatesToCompare.has(c.id))
+  }, [rawCandidatesData, candidatesToCompare])
 
   const handleRetry = () => {
     setAppState("form")
     setError(null)
-    setCandidates([])
+    setRawCandidatesData([])
     setSelectedCandidate(null)
-    setMatchedCandidatesData([])
+    setCandidatesToCompare(new Set())
+    setLocationFilter("Any")
+    setSortBy("matchQuality")
   }
+
+  const getSortLabel = (sortKey: SortByType) => {
+    const labels: Record<SortByType, string> = {
+      matchQuality: "Match Quality",
+      nameAZ: "Name (A-Z)",
+      nameZA: "Name (Z-A)",
+      expLowHigh: "Exp. (Low-High)",
+      expHighLow: "Exp. (High-Low)",
+    }
+    return labels[sortKey]
+  }
+
+  const glassButtonClasses =
+    "text-sm py-2 px-3 border border-[var(--glass-border)] bg-[var(--glass-bg)] hover:bg-[var(--glass-hover)] text-[var(--text-primary)] rounded-lg transition-colors flex items-center gap-2"
 
   return (
     <div className="min-h-screen bg-[var(--bg-primary)] relative overflow-hidden">
-      {/* Subtle background light effects */}
       <div className="absolute inset-0 opacity-30">
         <motion.div
           className="absolute top-1/4 left-1/4 w-96 h-96 bg-gradient-to-r from-[var(--accent-blue)]/20 to-[var(--accent-gold)]/20 rounded-full blur-3xl"
-          animate={{
-            x: [0, 100, 0],
-            y: [0, -50, 0],
-          }}
-          transition={{
-            duration: 20,
-            repeat: Number.POSITIVE_INFINITY,
-            ease: "easeInOut",
-          }}
+          animate={{ x: [0, 100, 0], y: [0, -50, 0] }}
+          transition={{ duration: 20, repeat: Number.POSITIVE_INFINITY, ease: "easeInOut" }}
         />
         <motion.div
           className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-gradient-to-r from-[var(--accent-gold)]/20 to-[var(--accent-blue)]/20 rounded-full blur-3xl"
-          animate={{
-            x: [0, -100, 0],
-            y: [0, 50, 0],
-          }}
-          transition={{
-            duration: 25,
-            repeat: Number.POSITIVE_INFINITY,
-            ease: "easeInOut",
-          }}
+          animate={{ x: [0, -100, 0], y: [0, 50, 0] }}
+          transition={{ duration: 25, repeat: Number.POSITIVE_INFINITY, ease: "easeInOut" }}
         />
       </div>
 
@@ -164,7 +218,9 @@ export default function HomePage() {
             </motion.div>
           )}
 
-          {appState === "loading" && <LoadingScreen key="loading" onComplete={handleLoadingComplete} />}
+          {appState === "loading" && (
+            <MatchingAnimation key="loading" isVisible={true} onComplete={handleLoadingComplete} />
+          )}
 
           {appState === "error" && (
             <motion.div
@@ -173,15 +229,12 @@ export default function HomePage() {
               animate={{ opacity: 1 }}
               className="min-h-screen flex items-center justify-center"
             >
-              <div className="text-center p-8">
+              <div className="text-center p-8 glass-card max-w-md mx-auto">
                 <h2 className="text-2xl font-bold text-[var(--text-primary)] mb-4">Oops! Something went wrong</h2>
                 <p className="text-[var(--text-secondary)] mb-6">{error}</p>
-                <button
-                  onClick={handleRetry}
-                  className="px-6 py-2 bg-gradient-to-r from-[var(--accent-primary)] to-[var(--accent-secondary)] text-white rounded-lg hover:opacity-90 transition-opacity"
-                >
+                <Button onClick={handleRetry} className="gradient-button text-white px-6 py-2">
                   Try Again
-                </button>
+                </Button>
               </div>
             </motion.div>
           )}
@@ -193,78 +246,127 @@ export default function HomePage() {
               animate={{ opacity: 1 }}
               className="container mx-auto p-6"
             >
-              {/* Header */}
               <div className="mb-8">
-                <div className="flex items-center justify-between">
+                <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
                   <div>
                     <h1 className="text-3xl font-bold text-[var(--text-primary)] mb-2">Perfect Matches Found</h1>
                     <p className="text-[var(--text-secondary)]">
-                      {candidates.length} candidates match your requirements for "{jobData?.title}"
+                      Showing top {displayCandidates.length} of {filteredAndSortedCandidates.length} candidates for "
+                      {jobData?.title}"
                     </p>
                   </div>
-                  <div className="flex gap-3">
-                    <button
+                  <div className="flex flex-wrap items-center gap-2">
+                    {candidatesToCompare.size >= 2 && (
+                      <Button onClick={() => setShowCompareModal(true)} className={glassButtonClasses}>
+                        <Users className="w-4 h-4" /> Compare ({candidatesToCompare.size})
+                      </Button>
+                    )}
+                    <Button
                       onClick={() => setShowShortlistModal(true)}
-                      className="px-4 py-2 text-sm bg-[var(--accent-gold)] text-white rounded-lg hover:opacity-90 transition-opacity flex items-center gap-2"
+                      className={`${glassButtonClasses} ${
+                        shortlistedCandidates.size > 0
+                          ? "bg-[var(--accent-gold)] text-white hover:bg-[var(--accent-gold)]/90"
+                          : ""
+                      }`}
                     >
-                      <Star className="w-4 h-4 fill-current" />
-                      Shortlist ({shortlistedCandidates.size})
-                    </button>
-                    <button
-                      onClick={handleRetry}
-                      className="px-4 py-2 text-sm bg-[var(--glass-bg)] border border-[var(--glass-border)] rounded-lg text-[var(--text-primary)] hover:bg-[var(--glass-hover)] transition-colors"
-                    >
-                      New Search
-                    </button>
+                      <Star className={`w-4 h-4 ${shortlistedCandidates.size > 0 ? "fill-current" : ""}`} /> Shortlist (
+                      {shortlistedCandidates.size})
+                    </Button>
+                    <Button onClick={handleRetry} className={glassButtonClasses}>
+                      <SearchIcon className="w-4 h-4" /> New Search
+                    </Button>
                   </div>
+                </div>
+
+                <div className="flex flex-wrap items-center gap-2 mt-4">
+                  <DropdownMenu>
+                    <DropdownMenuTrigger asChild>
+                      <Button className={glassButtonClasses}>
+                        <Filter className="w-4 h-4" /> Location: {locationFilter}
+                      </Button>
+                    </DropdownMenuTrigger>
+                    <DropdownMenuContent
+                      align="start"
+                      className="bg-[var(--bg-modal)] border-[var(--glass-border)] text-[var(--text-primary)]"
+                    >
+                      <DropdownMenuItem onClick={() => setLocationFilter("Any")}>Any</DropdownMenuItem>
+                      <DropdownMenuSeparator className="bg-[var(--glass-border)]" />
+                      {availableLocations.map((loc) => (
+                        <DropdownMenuItem key={loc} onClick={() => setLocationFilter(loc)}>
+                          {loc}
+                        </DropdownMenuItem>
+                      ))}
+                    </DropdownMenuContent>
+                  </DropdownMenu>
+
+                  <DropdownMenu>
+                    <DropdownMenuTrigger asChild>
+                      <Button className={glassButtonClasses}>
+                        <ArrowUpDown className="w-4 h-4" /> Sort By: {getSortLabel(sortBy)}
+                      </Button>
+                    </DropdownMenuTrigger>
+                    <DropdownMenuContent
+                      align="start"
+                      className="bg-[var(--bg-modal)] border-[var(--glass-border)] text-[var(--text-primary)]"
+                    >
+                      <DropdownMenuItem onClick={() => setSortBy("matchQuality")}>Match Quality</DropdownMenuItem>
+                      <DropdownMenuItem onClick={() => setSortBy("nameAZ")}>Name (A-Z)</DropdownMenuItem>
+                      <DropdownMenuItem onClick={() => setSortBy("nameZA")}>Name (Z-A)</DropdownMenuItem>
+                      <DropdownMenuItem onClick={() => setSortBy("expLowHigh")}>Exp. (Low-High)</DropdownMenuItem>
+                      <DropdownMenuItem onClick={() => setSortBy("expHighLow")}>Exp. (High-Low)</DropdownMenuItem>
+                    </DropdownMenuContent>
+                  </DropdownMenu>
                 </div>
               </div>
 
-              {candidates.length > 0 ? (
+              {displayCandidates.length > 0 ? (
                 <div className="flex gap-6 lg:flex-row flex-col">
-                  {/* Left Column - Candidate Profile */}
-                  <div className="w-full lg:w-[400px]">
+                  <div className="w-full lg:w-[400px] sticky top-6 self-start">
                     {selectedCandidate && (
                       <CandidateProfile
                         candidate={selectedCandidate}
-                        onShortlist={() => handleShortlist(selectedCandidate.id)}
+                        onShortlist={() => handleShortlistToggle(selectedCandidate.id)}
                         isShortlisted={shortlistedCandidates.has(selectedCandidate.id)}
                         onDownloadResume={() => handleDownloadResume(selectedCandidate.id)}
-                        matchedSkills={getMatchedCandidateData(selectedCandidate.id)?.matchedSkills || []}
-                        missingSkills={getMatchedCandidateData(selectedCandidate.id)?.missingSkills || []}
+                        matchedSkills={getMatchedCandidateDetails(selectedCandidate.id)?.matchedSkills || []}
+                        missingSkills={getMatchedCandidateDetails(selectedCandidate.id)?.missingSkills || []}
                         rank={selectedCandidateRank}
                       />
                     )}
                   </div>
-
-                  {/* Right Column - Results Grid */}
                   <div className="flex-1">
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                      {candidates.map((candidate, index) => (
+                      {displayCandidates.map((candidate, index) => (
                         <CandidateCard
                           key={candidate.id}
                           candidate={candidate}
-                          onClick={() => handleCandidateSelect(candidate, index + 1)}
+                          onClick={() => handleCandidateSelect(candidate)}
                           isSelected={selectedCandidate?.id === candidate.id}
-                          matchedSkills={getMatchedCandidateData(candidate.id)?.matchedSkills || []}
-                          delay={index * 0.1}
-                          rank={index + 1}
+                          matchedSkills={getMatchedCandidateDetails(candidate.id)?.matchedSkills || []}
+                          delay={index * 0.05}
+                          rank={filteredAndSortedCandidates.findIndex((c) => c.id === candidate.id) + 1} // Rank from overall filtered list
+                          onToggleCompare={handleToggleCompare}
+                          isComparing={candidatesToCompare.has(candidate.id)}
                         />
                       ))}
                     </div>
+                    {filteredAndSortedCandidates.length === 0 && appState === "results" && (
+                      <p className="text-center text-[var(--text-secondary)] mt-8">
+                        No candidates match the current filters.
+                      </p>
+                    )}
                   </div>
                 </div>
               ) : (
                 <div className="text-center py-12">
                   <p className="text-[var(--text-secondary)] text-lg">
-                    No candidates found matching your criteria. Try adjusting your job description.
+                    {rawCandidatesData.length > 0
+                      ? "No candidates match the current filters."
+                      : "No candidates found for your search."}
                   </p>
-                  <button
-                    onClick={handleRetry}
-                    className="mt-4 px-6 py-2 bg-gradient-to-r from-[var(--accent-primary)] to-[var(--accent-secondary)] text-white rounded-lg hover:opacity-90 transition-opacity"
-                  >
+                  <Button onClick={handleRetry} className="mt-4 gradient-button text-white px-6 py-2">
                     Try Again
-                  </button>
+                  </Button>
                 </div>
               )}
             </motion.div>
@@ -272,11 +374,15 @@ export default function HomePage() {
         </AnimatePresence>
       </div>
 
-      {/* Shortlist Modal */}
       <ShortlistModal
         isOpen={showShortlistModal}
         onClose={() => setShowShortlistModal(false)}
-        allCandidates={matchedCandidatesData}
+        allCandidates={rawCandidatesData.filter((c) => shortlistedCandidates.has(c.id))}
+      />
+      <CompareCandidatesModal
+        isOpen={showCompareModal}
+        onClose={() => setShowCompareModal(false)}
+        candidates={compareModalCandidates}
       />
     </div>
   )
