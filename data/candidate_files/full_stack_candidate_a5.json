@@ -1,0 +1,56 @@
+{
+    "id": "full_stack_candidate_a5",
+    "role": "Senior AI/ML Engineer",
+    "location": "Stuttgart, Germany",
+    "profile_summary": "Senior Full-Stack Developer with 12 years of experience in B2B productivity tools. Deep expertise in monorepos, testing automation, scalable backend design, and cross-team collaboration.",
+    "experience": [
+        {
+            "title": "Principal Full-Stack Developer, CollabSuite GmbH; Stuttgart, Germany \u2014 2018\u2013Present",
+            "summary": "Built real-time collaboration features using WebSockets, Redis, and React. Oversaw migration to Nx monorepo and implemented end-to-end Cypress testing."
+        },
+        {
+            "title": "Senior Web Engineer, TaskBox AG; Munich, Germany \u2014 2014\u20132018",
+            "summary": "Led refactoring of legacy CRM to modular microservices. Rewrote frontend in TypeScript + React, reducing code duplication by 45%."
+        },
+        {
+            "title": "Software Engineer, AgileWorks GmbH; Ulm, Germany \u2014 2011\u20132014",
+            "summary": "Developed reusable design system and CI/CD integrations using Jenkins and Docker."
+        }
+    ],
+    "education": [
+        {
+            "institution": "University of T\u00fcbingen",
+            "location": "T\u00fcbingen",
+            "degree": "M.Sc. Distributed Systems",
+            "year": 2011
+        },
+        {
+            "institution": "Istanbul University",
+            "location": "Istanbul",
+            "degree": "B.Sc. Information Systems",
+            "year": 2009
+        }
+    ],
+    "skills": [
+        "React",
+        "TypeScript",
+        "Redis",
+        "WebSockets",
+        "Docker",
+        "Nx Monorepo",
+        "Cypress",
+        "Jenkins",
+        "PostgreSQL",
+        "Microservices"
+    ],
+    "certifications": [
+        "Cypress Advanced Testing Certificate",
+        "React Performance Optimization",
+        "Nx Monorepo Mastery"
+    ],
+    "contact": {
+        "company": "Arcadia Network",
+        "address": "Lichtenbergstra\u00dfe 6, 85748 M\u00fcnchen.",
+        "email": "info@arcadianetwork.io"
+    }
+}

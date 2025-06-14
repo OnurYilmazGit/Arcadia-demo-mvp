@@ -1,0 +1,56 @@
+{
+    "id": "devops_candidate_a3",
+    "role": "Senior AI/ML Engineer",
+    "location": "Cologne, Germany",
+    "profile_summary": "SRE-focused DevOps engineer with 9+ years in distributed systems and uptime-critical healthtech platforms. Experienced in observability, auto-scaling, and blue/green deployment strategies.",
+    "experience": [
+        {
+            "title": "SRE / DevOps Engineer, MediOps GmbH; Cologne, Germany \u2014 2018\u2013Present",
+            "summary": "Designed fault-tolerant architecture with auto-scaling Kubernetes clusters. Decreased downtime by 70% using blue/green deployments and chaos engineering tests."
+        },
+        {
+            "title": "DevOps Engineer, VitaCloud AG; Bonn, Germany \u2014 2014\u20132018",
+            "summary": "Built Prometheus-based alerting system and Grafana dashboards. Set up Istio for service mesh and traffic splitting."
+        },
+        {
+            "title": "Linux Admin, HealthNet UG; Aachen, Germany \u2014 2012\u20132014",
+            "summary": "Monitored critical health data services and performed weekend recovery testing across 20-node clusters."
+        }
+    ],
+    "education": [
+        {
+            "institution": "University of Cologne",
+            "location": "Cologne",
+            "degree": "M.Sc. Systems Engineering",
+            "year": 2012
+        },
+        {
+            "institution": "Istanbul Bilgi University",
+            "location": "Istanbul",
+            "degree": "B.Sc. Software Engineering",
+            "year": 2009
+        }
+    ],
+    "skills": [
+        "Kubernetes",
+        "Istio",
+        "Prometheus",
+        "Grafana",
+        "Blue/Green Deployments",
+        "GCP",
+        "Terraform",
+        "Chaos Engineering",
+        "Linux",
+        "Service Mesh"
+    ],
+    "certifications": [
+        "Google SRE Certification",
+        "Prometheus Monitoring Specialist",
+        "CKS \u2013 Certified Kubernetes Security Specialist"
+    ],
+    "contact": {
+        "company": "Arcadia Network",
+        "address": "Lichtenbergstra\u00dfe 6, 85748 M\u00fcnchen.",
+        "email": "info@arcadianetwork.io"
+    }
+}

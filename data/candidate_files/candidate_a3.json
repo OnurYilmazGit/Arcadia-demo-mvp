@@ -1,0 +1,56 @@
+{
+    "id": "candidate_a3",
+    "role": "Senior AI/ML Engineer",
+    "location": "Cologne, Germany",
+    "profile_summary": "AI/ML Engineer with 7+ years of experience in NLP-focused applications in LegalTech and document intelligence. Specialized in entity recognition, summarization, and semantic matching.",
+    "experience": [
+        {
+            "title": "Lead NLP Engineer, LawSync GmbH; Cologne, Germany \u2014 2021\u2013Present",
+            "summary": "Built NLP pipelines for contract clause extraction using spaCy and Hugging Face. Reduced manual legal review by 60%."
+        },
+        {
+            "title": "ML Engineer, DocuAI Labs; D\u00fcsseldorf, Germany \u2014 2018\u20132021",
+            "summary": "Implemented summarization models with Transformers and BERT. Integrated FastAPI microservices for doc search."
+        },
+        {
+            "title": "Data Scientist, LexML Solutions; Leipzig, Germany \u2014 2016\u20132018",
+            "summary": "Trained NER models using legal datasets and deployed scalable REST APIs in AWS."
+        }
+    ],
+    "education": [
+        {
+            "institution": "University of Bonn",
+            "location": "Bonn",
+            "degree": "M.Sc. Computational Linguistics",
+            "year": 2016
+        },
+        {
+            "institution": "Middle East Technical University",
+            "location": "Ankara",
+            "degree": "B.Sc. Mathematics",
+            "year": 2013
+        }
+    ],
+    "skills": [
+        "Python",
+        "spaCy",
+        "Hugging Face",
+        "BERT",
+        "FastAPI",
+        "ElasticSearch",
+        "AWS",
+        "Docker",
+        "PostgreSQL",
+        "NLP"
+    ],
+    "certifications": [
+        "AWS Certified NLP Specialist",
+        "LegalTech NLP Award",
+        "DeepLearning.AI NLP Certificate"
+    ],
+    "contact": {
+        "company": "Arcadia Network",
+        "address": "Lichtenbergstra\u00dfe 6, 85748 M\u00fcnchen.",
+        "email": "info@arcadianetwork.io"
+    }
+}

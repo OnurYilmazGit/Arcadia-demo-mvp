@@ -1,0 +1,56 @@
+{
+    "id": "embedded_candidate_a4",
+    "role": "Senior AI/ML Engineer",
+    "location": "Frankfurt, Germany",
+    "profile_summary": "Embedded Linux expert with 11 years in developing firmware for networking devices. Skilled in kernel modules, bootloaders, and secure OTA mechanisms.",
+    "experience": [
+        {
+            "title": "Firmware Lead, NetBox AG; Frankfurt, Germany \u2014 2016\u2013Present",
+            "summary": "Developed secure boot process and modular kernel extensions for routers. Managed Yocto build system and signed OTA updates."
+        },
+        {
+            "title": "Embedded Linux Engineer, LinkWave GmbH; Mainz, Germany \u2014 2012\u20132016",
+            "summary": "Customized OpenWRT builds and built drivers for Wi-Fi chipsets. Designed UI interface integration layer via JSON-RPC."
+        },
+        {
+            "title": "Junior Developer, ComLink UG; Darmstadt, Germany \u2014 2010\u20132012",
+            "summary": "Maintained CLI-based firmware configuration tools and added IPv6 NAT support modules."
+        }
+    ],
+    "education": [
+        {
+            "institution": "Goethe University Frankfurt",
+            "location": "Frankfurt",
+            "degree": "M.Sc. Embedded Linux Systems",
+            "year": 2010
+        },
+        {
+            "institution": "University of Novi Sad",
+            "location": "Novi Sad",
+            "degree": "B.Sc. Telecommunication Systems",
+            "year": 2007
+        }
+    ],
+    "skills": [
+        "Embedded Linux",
+        "OpenWRT",
+        "Yocto",
+        "Kernel Modules",
+        "Secure Boot",
+        "OTA",
+        "Bootloaders",
+        "C",
+        "Drivers",
+        "Networking Firmware"
+    ],
+    "certifications": [
+        "Yocto Advanced Build Systems",
+        "Secure Embedded Linux Certificate",
+        "Linux Kernel Dev Training \u2013 LFD420"
+    ],
+    "contact": {
+        "company": "Arcadia Network",
+        "address": "Lichtenbergstra\u00dfe 6, 85748 M\u00fcnchen.",
+        "email": "info@arcadianetwork.io"
+    }
+}

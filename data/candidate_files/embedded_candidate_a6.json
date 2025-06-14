@@ -1,0 +1,56 @@
+{
+    "id": "embedded_candidate_a6",
+    "role": "Senior AI/ML Engineer",
+    "location": "Hamburg, Germany",
+    "profile_summary": "Embedded DSP engineer with 11 years in real-time audio/signal systems. Specializes in real-time pipelines, fixed-point DSP, and bare-metal performance tuning.",
+    "experience": [
+        {
+            "title": "Embedded DSP Engineer, AudioCore GmbH; Hamburg, Germany \u2014 2016\u2013Present",
+            "summary": "Developed real-time filters and echo cancellation pipelines on TI DSPs. Optimized fixed-point operations to reduce latency by 30%."
+        },
+        {
+            "title": "Firmware Developer, SoundLogic AG; Kiel, Germany \u2014 2012\u20132016",
+            "summary": "Ported audio codec stacks to embedded platforms. Designed I2S/SPI-based streaming drivers."
+        },
+        {
+            "title": "Embedded Audio Engineer, AcouSys UG; L\u00fcbeck, Germany \u2014 2010\u20132012",
+            "summary": "Built RTOS scheduling framework for multi-band compression and EQ in wearable devices."
+        }
+    ],
+    "education": [
+        {
+            "institution": "Hamburg University of Technology",
+            "location": "Hamburg",
+            "degree": "M.Sc. Embedded Signal Processing",
+            "year": 2010
+        },
+        {
+            "institution": "University of Skopje",
+            "location": "Skopje",
+            "degree": "B.Sc. Electronics",
+            "year": 2007
+        }
+    ],
+    "skills": [
+        "DSP",
+        "TI DSPs",
+        "I2S",
+        "Fixed-Point",
+        "Echo Cancellation",
+        "Bare-Metal",
+        "C",
+        "RTOS",
+        "Audio Firmware",
+        "SPI"
+    ],
+    "certifications": [
+        "TI DSP Certified Developer",
+        "Embedded DSP Optimization Workshop",
+        "Real-Time Audio Systems Specialist"
+    ],
+    "contact": {
+        "company": "Arcadia Network",
+        "address": "Lichtenbergstra\u00dfe 6, 85748 M\u00fcnchen.",
+        "email": "info@arcadianetwork.io"
+    }
+}

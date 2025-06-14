@@ -1,0 +1,56 @@
+{
+    "id": "devops_candidate_a6",
+    "role": "Senior AI/ML Engineer",
+    "location": "Dresden, Germany",
+    "profile_summary": "DevOps and MLOps hybrid engineer with 9+ years of experience in setting up scalable ML pipelines, GPU clusters, and experiment tracking for AI teams.",
+    "experience": [
+        {
+            "title": "ML Platform Engineer, DeepInfra GmbH; Dresden, Germany \u2014 2019\u2013Present",
+            "summary": "Built MLflow-based tracking system, deployed NVIDIA GPU clusters using Terraform and Ansible, managed distributed training jobs with Ray."
+        },
+        {
+            "title": "DevOps Engineer, ModelFlow Labs; Leipzig, Germany \u2014 2015\u20132019",
+            "summary": "Integrated Kubernetes with TensorFlow Serving and managed Helm charts for reproducible experiment environments."
+        },
+        {
+            "title": "Cloud Engineer, AICloud UG; Jena, Germany \u2014 2013\u20132015",
+            "summary": "Automated JupyterHub deployments on GCP and implemented S3-compatible storage pipelines with MinIO."
+        }
+    ],
+    "education": [
+        {
+            "institution": "TU Dresden",
+            "location": "Dresden",
+            "degree": "M.Sc. AI Infrastructure Engineering",
+            "year": 2013
+        },
+        {
+            "institution": "University of Ljubljana",
+            "location": "Ljubljana",
+            "degree": "B.Sc. Computer Science",
+            "year": 2010
+        }
+    ],
+    "skills": [
+        "MLflow",
+        "Ray",
+        "Kubernetes",
+        "Helm",
+        "Ansible",
+        "Terraform",
+        "GCP",
+        "MinIO",
+        "GPU Clusters",
+        "CI/CD"
+    ],
+    "certifications": [
+        "Certified MLOps Professional",
+        "Terraform Advanced User",
+        "NVIDIA Deep Learning Infra Certificate"
+    ],
+    "contact": {
+        "company": "Arcadia Network",
+        "address": "Lichtenbergstra\u00dfe 6, 85748 M\u00fcnchen.",
+        "email": "info@arcadianetwork.io"
+    }
+}

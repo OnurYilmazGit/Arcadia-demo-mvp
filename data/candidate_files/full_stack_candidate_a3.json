@@ -1,0 +1,56 @@
+{
+    "id": "full_stack_candidate_a3",
+    "role": "Senior AI/ML Engineer",
+    "location": "D\u00fcsseldorf, Germany",
+    "profile_summary": "Full-Stack engineer with 8 years experience in e-commerce, building feature-rich platforms with microservices, serverless functions, and modern UI frameworks.",
+    "experience": [
+        {
+            "title": "Full-Stack Developer, BuyIt GmbH; D\u00fcsseldorf, Germany \u2014 2020\u2013Present",
+            "summary": "Developed multi-vendor product pages using Vue.js and Node.js. Integrated Stripe API and AWS Lambda for dynamic pricing."
+        },
+        {
+            "title": "Web Engineer, ShopGrid AG; Cologne, Germany \u2014 2016\u20132020",
+            "summary": "Built CMS-like admin panel using React and GraphQL. Helped reduce backend API load by 40% via caching strategies."
+        },
+        {
+            "title": "Junior Developer, CartNow UG; Bonn, Germany \u2014 2014\u20132016",
+            "summary": "Maintained shopping cart system and refactored legacy PHP modules into RESTful services."
+        }
+    ],
+    "education": [
+        {
+            "institution": "RWTH Aachen",
+            "location": "Aachen",
+            "degree": "M.Sc. Web Technologies",
+            "year": 2014
+        },
+        {
+            "institution": "University of Belgrade",
+            "location": "Belgrade",
+            "degree": "B.Sc. Software Engineering",
+            "year": 2012
+        }
+    ],
+    "skills": [
+        "Vue.js",
+        "React",
+        "Node.js",
+        "GraphQL",
+        "AWS Lambda",
+        "Stripe API",
+        "MongoDB",
+        "Redis",
+        "Docker",
+        "PHP"
+    ],
+    "certifications": [
+        "Stripe Certified Developer",
+        "GraphQL Bootcamp Certificate",
+        "AWS Serverless Developer Badge"
+    ],
+    "contact": {
+        "company": "Arcadia Network",
+        "address": "Lichtenbergstra\u00dfe 6, 85748 M\u00fcnchen.",
+        "email": "info@arcadianetwork.io"
+    }
+}

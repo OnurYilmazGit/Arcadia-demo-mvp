@@ -1,0 +1,56 @@
+{
+    "id": "embedded_candidate_a1",
+    "role": "Senior AI/ML Engineer",
+    "location": "Munich, Germany",
+    "profile_summary": "Embedded systems engineer with 12 years in robotics and real-time control systems. Specialized in bare-metal programming, RTOS, and hardware/software co-design.",
+    "experience": [
+        {
+            "title": "Lead Embedded Engineer, RoboCore GmbH; Munich, Germany \u2014 2017\u2013Present",
+            "summary": "Designed real-time motor control firmware on STM32 using FreeRTOS. Integrated CAN bus diagnostics and OTA updates."
+        },
+        {
+            "title": "Firmware Developer, AutoMech AG; Ingolstadt, Germany \u2014 2013\u20132017",
+            "summary": "Developed embedded safety software for autonomous robot arms. Led firmware review and testing process."
+        },
+        {
+            "title": "Embedded Engineer, MechSoft UG; Augsburg, Germany \u2014 2010\u20132013",
+            "summary": "Programmed sensor fusion algorithms on 8-bit and 32-bit microcontrollers for precision handling."
+        }
+    ],
+    "education": [
+        {
+            "institution": "TUM \u2013 Technical University of Munich",
+            "location": "Munich",
+            "degree": "M.Sc. Embedded Systems",
+            "year": 2010
+        },
+        {
+            "institution": "University of Belgrade",
+            "location": "Belgrade",
+            "degree": "B.Sc. Electrical Engineering",
+            "year": 2007
+        }
+    ],
+    "skills": [
+        "C",
+        "C++",
+        "RTOS",
+        "STM32",
+        "CAN Bus",
+        "FreeRTOS",
+        "Firmware",
+        "Sensor Fusion",
+        "Embedded Linux",
+        "JTAG"
+    ],
+    "certifications": [
+        "Certified Embedded Systems Engineer",
+        "FreeRTOS Professional Developer",
+        "CAN Bus Diagnostics Certificate"
+    ],
+    "contact": {
+        "company": "Arcadia Network",
+        "address": "Lichtenbergstra\u00dfe 6, 85748 M\u00fcnchen.",
+        "email": "info@arcadianetwork.io"
+    }
+}

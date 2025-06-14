@@ -1,0 +1,56 @@
+{
+    "id": "full_stack_candidate_a1",
+    "role": "Senior AI/ML Engineer",
+    "location": "Munich, Germany",
+    "profile_summary": "Senior Full-Stack Engineer with 9+ years of experience building scalable fintech web apps using modern JavaScript frameworks and cloud infrastructure. Specialized in secure frontend/backend design, RESTful APIs, and performance optimization.",
+    "experience": [
+        {
+            "title": "Lead Full-Stack Engineer, FinVault GmbH; Munich, Germany \u2014 2020\u2013Present",
+            "summary": "Architected secure investment dashboard using React, Node.js, and AWS. Integrated OpenBanking APIs and deployed with CI/CD pipelines."
+        },
+        {
+            "title": "Senior Web Developer, CashPilot AG; Berlin, Germany \u2014 2016\u20132020",
+            "summary": "Migrated legacy systems to modern stack (React + Express). Improved performance by 35% and reduced bundle size by 50%."
+        },
+        {
+            "title": "Frontend Developer, DigitalWallet Inc.; Frankfurt, Germany \u2014 2014\u20132016",
+            "summary": "Built responsive UI components and dashboards with AngularJS and SCSS for finance analytics platform."
+        }
+    ],
+    "education": [
+        {
+            "institution": "LMU Munich",
+            "location": "Munich",
+            "degree": "M.Sc. Software Engineering",
+            "year": 2014
+        },
+        {
+            "institution": "University of Zagreb",
+            "location": "Zagreb",
+            "degree": "B.Sc. Information Systems",
+            "year": 2011
+        }
+    ],
+    "skills": [
+        "JavaScript",
+        "React",
+        "Node.js",
+        "PostgreSQL",
+        "AWS",
+        "TypeScript",
+        "Docker",
+        "CI/CD",
+        "REST",
+        "GraphQL"
+    ],
+    "certifications": [
+        "AWS Developer Associate",
+        "Frontend Masters Advanced React",
+        "Scrum Alliance Certified Scrum Developer"
+    ],
+    "contact": {
+        "company": "Arcadia Network",
+        "address": "Lichtenbergstra\u00dfe 6, 85748 M\u00fcnchen.",
+        "email": "info@arcadianetwork.io"
+    }
+}

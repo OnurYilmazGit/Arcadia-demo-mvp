@@ -1,0 +1,56 @@
+{
+    "id": "candidate_a5",
+    "role": "Senior AI/ML Engineer",
+    "location": "Berlin, Germany",
+    "profile_summary": "Experienced MLOps Engineer with 11 years in productionizing ML systems for high-traffic e-commerce platforms. Expert in CI/CD for ML, monitoring, and distributed training.",
+    "experience": [
+        {
+            "title": "Senior MLOps Engineer, ShopAI GmbH; Berlin, Germany \u2014 2019\u2013Present",
+            "summary": "Built ML model deployment platform with Kubeflow and Airflow. Reduced model deployment time by 60%."
+        },
+        {
+            "title": "ML Engineer, PriceTune Technologies; Nuremberg, Germany \u2014 2015\u20132019",
+            "summary": "Optimized product recommendation systems using LightGBM and feature stores. Deployed to AWS with Terraform."
+        },
+        {
+            "title": "Data Engineer, SmartBuy AG; Bremen, Germany \u2014 2012\u20132015",
+            "summary": "Built real-time pipelines using Kafka and Spark. Automated daily data workflows."
+        }
+    ],
+    "education": [
+        {
+            "institution": "Humboldt University of Berlin",
+            "location": "Berlin",
+            "degree": "M.Sc. Data Engineering",
+            "year": 2012
+        },
+        {
+            "institution": "University of Warsaw",
+            "location": "Warsaw",
+            "degree": "B.Sc. Computer Science",
+            "year": 2010
+        }
+    ],
+    "skills": [
+        "Python",
+        "Kubeflow",
+        "Airflow",
+        "Terraform",
+        "AWS",
+        "LightGBM",
+        "MLflow",
+        "Prometheus",
+        "Kafka",
+        "Spark"
+    ],
+    "certifications": [
+        "Certified Kubernetes Administrator (CKA)",
+        "AWS DevOps Engineer \u2013 Professional",
+        "Databricks ML Lifecycle Expert"
+    ],
+    "contact": {
+        "company": "Arcadia Network",
+        "address": "Lichtenbergstra\u00dfe 6, 85748 M\u00fcnchen.",
+        "email": "info@arcadianetwork.io"
+    }
+}

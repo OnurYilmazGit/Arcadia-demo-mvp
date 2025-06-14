@@ -1,0 +1,56 @@
+{
+    "id": "devops_candidate_a5",
+    "role": "Senior AI/ML Engineer",
+    "location": "Hanover, Germany",
+    "profile_summary": "DevSecOps engineer with 12 years in public sector and e-Government infrastructure. Specialized in compliance-first pipelines, OpenSCAP, and zero-trust architecture.",
+    "experience": [
+        {
+            "title": "DevSecOps Engineer, DigitalGovTech GmbH; Hanover, Germany \u2014 2017\u2013Present",
+            "summary": "Integrated security scans into CI/CD with OpenSCAP and Clair. Migrated legacy systems to zero-trust model using SPIFFE/SPIRE."
+        },
+        {
+            "title": "Infrastructure Engineer, BundesCloud UG; Braunschweig, Germany \u2014 2013\u20132017",
+            "summary": "Set up secure private cloud with OpenStack. Automated compliance reporting and implemented network segmentation strategies."
+        },
+        {
+            "title": "Security Analyst, InfoCert AG; Hannover, Germany \u2014 2010\u20132013",
+            "summary": "Audited access logs, detected anomalies using ELK stack, and helped implement GDPR data policy updates."
+        }
+    ],
+    "education": [
+        {
+            "institution": "Leibniz University Hannover",
+            "location": "Hannover",
+            "degree": "M.Sc. IT Security & Networks",
+            "year": 2011
+        },
+        {
+            "institution": "University of Bucharest",
+            "location": "Bucharest",
+            "degree": "B.Sc. Information Technologies",
+            "year": 2008
+        }
+    ],
+    "skills": [
+        "OpenSCAP",
+        "Clair",
+        "SPIFFE",
+        "SPIRE",
+        "OpenStack",
+        "ELK",
+        "CI/CD",
+        "Ansible",
+        "Zero Trust",
+        "Compliance"
+    ],
+    "certifications": [
+        "Certified DevSecOps Professional",
+        "OpenStack Certified Administrator",
+        "EU GDPR Compliance for Engineers"
+    ],
+    "contact": {
+        "company": "Arcadia Network",
+        "address": "Lichtenbergstra\u00dfe 6, 85748 M\u00fcnchen.",
+        "email": "info@arcadianetwork.io"
+    }
+}

@@ -1,0 +1,56 @@
+{
+    "id": "candidate_a4",
+    "role": "Senior AI/ML Engineer",
+    "location": "Stuttgart, Germany",
+    "profile_summary": "Computer Vision specialist with 9 years of experience in mobility and autonomous systems. Built end-to-end CV pipelines for real-time object detection, localization, and tracking.",
+    "experience": [
+        {
+            "title": "CV Engineer, AutoVision AG; Stuttgart, Germany \u2014 2020\u2013Present",
+            "summary": "Developed YOLOv5-based object detection system for autonomous driving. Achieved 97% mAP in road environments."
+        },
+        {
+            "title": "AI Engineer, RoboDrive Systems; Karlsruhe, Germany \u2014 2017\u20132020",
+            "summary": "Built depth estimation models with stereo vision and OpenCV. Contributed to ROS stack integration."
+        },
+        {
+            "title": "Research Assistant, Fraunhofer IOSB; Mannheim, Germany \u2014 2015\u20132017",
+            "summary": "Published 3 papers on vision-based vehicle tracking. Worked on SLAM and real-time video analytics."
+        }
+    ],
+    "education": [
+        {
+            "institution": "TU Darmstadt",
+            "location": "Darmstadt",
+            "degree": "M.Sc. Robotics and Computer Vision",
+            "year": 2015
+        },
+        {
+            "institution": "Bo\u011fazi\u00e7i University",
+            "location": "Istanbul",
+            "degree": "B.Sc. Electrical Engineering",
+            "year": 2012
+        }
+    ],
+    "skills": [
+        "Python",
+        "YOLOv5",
+        "OpenCV",
+        "TensorFlow",
+        "ROS",
+        "CUDA",
+        "Docker",
+        "C++",
+        "PyTorch",
+        "Computer Vision"
+    ],
+    "certifications": [
+        "Udacity Self-Driving Car Engineer",
+        "CVPR Workshop Winner",
+        "GCP ML Certificate"
+    ],
+    "contact": {
+        "company": "Arcadia Network",
+        "address": "Lichtenbergstra\u00dfe 6, 85748 M\u00fcnchen.",
+        "email": "info@arcadianetwork.io"
+    }
+}

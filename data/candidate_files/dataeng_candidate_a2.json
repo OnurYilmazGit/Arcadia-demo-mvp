@@ -1,0 +1,56 @@
+{
+    "id": "dataeng_candidate_a2",
+    "role": "Senior AI/ML Engineer",
+    "location": "Frankfurt, Germany",
+    "profile_summary": "Data engineer with 10 years of experience in financial analytics pipelines, batch and stream processing, and regulatory data auditing systems.",
+    "experience": [
+        {
+            "title": "Senior Data Engineer, FinSight AG; Frankfurt, Germany \u2014 2018\u2013Present",
+            "summary": "Built DWH on Snowflake and developed ingestion pipelines for regulatory feeds using dbt and Python. Enabled GDPR-compliant retention policies."
+        },
+        {
+            "title": "BI/Data Engineer, RiskBase GmbH; Mannheim, Germany \u2014 2014\u20132018",
+            "summary": "Led ETL modernization using Talend and Spark. Created dashboard KPIs for compliance reporting in Tableau."
+        },
+        {
+            "title": "Data Analyst, FinX UG; Mainz, Germany \u2014 2012\u20132014",
+            "summary": "Wrote SQL queries for market risk indicators and assisted in monthly Basel II reporting processes."
+        }
+    ],
+    "education": [
+        {
+            "institution": "University of Mannheim",
+            "location": "Mannheim",
+            "degree": "M.Sc. Information Systems",
+            "year": 2012
+        },
+        {
+            "institution": "Y\u0131ld\u0131z Technical University",
+            "location": "Istanbul",
+            "degree": "B.Sc. Statistics",
+            "year": 2009
+        }
+    ],
+    "skills": [
+        "Snowflake",
+        "dbt",
+        "Python",
+        "Spark",
+        "Talend",
+        "Tableau",
+        "GDPR",
+        "SQL",
+        "Data Warehousing",
+        "ETL"
+    ],
+    "certifications": [
+        "Snowflake Data Engineer Associate",
+        "dbt Analytics Engineering Certified",
+        "Tableau Data Visualization Expert"
+    ],
+    "contact": {
+        "company": "Arcadia Network",
+        "address": "Lichtenbergstra\u00dfe 6, 85748 M\u00fcnchen.",
+        "email": "info@arcadianetwork.io"
+    }
+}

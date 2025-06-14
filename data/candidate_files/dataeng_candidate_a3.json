@@ -1,0 +1,56 @@
+{
+    "id": "dataeng_candidate_a3",
+    "role": "Senior AI/ML Engineer",
+    "location": "Hamburg, Germany",
+    "profile_summary": "Streaming-focused data engineer with 8+ years in IoT and telemetry data ingestion, processing, and storage systems. Experienced with Flink, Kinesis, and edge-to-cloud flows.",
+    "experience": [
+        {
+            "title": "Data Streaming Engineer, SensorFlow GmbH; Hamburg, Germany \u2014 2019\u2013Present",
+            "summary": "Built end-to-end streaming architecture using AWS Kinesis, Flink, and DynamoDB. Designed time-window aggregators and late-arrival handling logic."
+        },
+        {
+            "title": "Big Data Engineer, IoTNet AG; Bremen, Germany \u2014 2015\u20132019",
+            "summary": "Deployed Kafka + Spark pipelines for telemetry logs. Developed alert system for equipment failures in manufacturing lines."
+        },
+        {
+            "title": "Data Engineer, EmbeddedBits UG; Kiel, Germany \u2014 2013\u20132015",
+            "summary": "Set up MQTT brokers and wrote custom processors for lightweight device payloads using Python."
+        }
+    ],
+    "education": [
+        {
+            "institution": "HafenCity University Hamburg",
+            "location": "Hamburg",
+            "degree": "M.Sc. Embedded Data Systems",
+            "year": 2013
+        },
+        {
+            "institution": "University of Skopje",
+            "location": "Skopje",
+            "degree": "B.Sc. Electronics & Informatics",
+            "year": 2010
+        }
+    ],
+    "skills": [
+        "Flink",
+        "Kinesis",
+        "Kafka",
+        "Spark",
+        "DynamoDB",
+        "Python",
+        "AWS",
+        "MQTT",
+        "Telemetry",
+        "Streaming Analytics"
+    ],
+    "certifications": [
+        "AWS Big Data Specialty",
+        "Apache Flink Developer Certification",
+        "IoT Data Engineering Badge \u2013 Udacity"
+    ],
+    "contact": {
+        "company": "Arcadia Network",
+        "address": "Lichtenbergstra\u00dfe 6, 85748 M\u00fcnchen.",
+        "email": "info@arcadianetwork.io"
+    }
+}

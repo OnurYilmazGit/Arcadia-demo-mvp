@@ -1,0 +1,55 @@
+{
+    "id": "full_stack_candidate_a4",
+    "role": "Senior AI/ML Engineer",
+    "location": "Leipzig, Germany",
+    "profile_summary": "SaaS-focused Full-Stack Engineer with 10+ years in EdTech platforms. Specialized in adaptive learning systems, analytics dashboards, and mobile-first design.",
+    "experience": [
+        {
+            "title": "Senior Software Engineer, LearnFlow GmbH; Leipzig, Germany \u2014 2019\u2013Present",
+            "summary": "Developed React-based student analytics dashboard with dynamic charting. Optimized PostgreSQL queries for reporting."
+        },
+        {
+            "title": "Full-Stack Developer, SkillTrain UG; Dresden, Germany \u2014 2015\u20132019",
+            "summary": "Built content authoring tool using Angular and Django REST Framework. Deployed on Azure with CI/CD."
+        },
+        {
+            "title": "Software Developer, TeachSoft AG; Hanover, Germany \u2014 2012\u20132015",
+            "summary": "Created mobile-responsive interfaces using Bootstrap and custom JS modules."
+        }
+    ],
+    "education": [
+        {
+            "institution": "HTWK Leipzig",
+            "location": "Leipzig",
+            "degree": "M.Sc. Software Systems Engineering",
+            "year": 2012
+        },
+        {
+            "institution": "University of Sarajevo",
+            "location": "Sarajevo",
+            "degree": "B.Sc. Computer Engineering",
+            "year": 2010
+        }
+    ],
+    "skills": [
+        "React",
+        "Angular",
+        "Django REST",
+        "Azure",
+        "PostgreSQL",
+        "Bootstrap",
+        "GitHub Actions",
+        "CI/CD",
+        "Data Visualization"
+    ],
+    "certifications": [
+        "Microsoft Azure Developer Associate",
+        "Certified React Pro",
+        "PostgreSQL Optimization Workshop"
+    ],
+    "contact": {
+        "company": "Arcadia Network",
+        "address": "Lichtenbergstra\u00dfe 6, 85748 M\u00fcnchen.",
+        "email": "info@arcadianetwork.io"
+    }
+}

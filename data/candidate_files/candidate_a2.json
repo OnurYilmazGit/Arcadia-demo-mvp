@@ -1,0 +1,66 @@
+{
+    "id": "candidate_a2",
+    "role": "Senior AI/ML Engineer",
+    "location": "Frankfurt, Germany",
+    "profile_summary": "AI/ML Engineer with 10+ years of experience applying machine learning in fintech and trading systems. Expert in fraud detection, time-series forecasting, and scalable ML infrastructures.",
+    "experience": [
+        {
+            "title": "Lead ML Engineer",
+            "company": "FinBank AG",
+            "location": "Frankfurt, Germany",
+            "duration": "2021\u2013Present",
+            "summary": "Developed real-time fraud detection models; reduced false positives by 30%. Led ML model deployment using GCP Vertex AI and Terraform."
+        },
+        {
+            "title": "ML Engineer",
+            "company": "QuantEdge GmbH",
+            "location": "Stuttgart, Germany",
+            "duration": "2018\u20132021",
+            "summary": "Built market anomaly prediction models using XGBoost and LSTMs; increased trading strategy returns by 8%."
+        },
+        {
+            "title": "Senior Data Scientist",
+            "company": "FinMetric Inc.",
+            "location": "Berlin, Germany",
+            "duration": "2015\u20132018",
+            "summary": "Deployed scalable pipeline with Apache Beam and BigQuery. Led a team of 3 data scientists."
+        }
+    ],
+    "education": [
+        {
+            "institution": "RWTH Aachen",
+            "location": "Aachen, Germany",
+            "degree": "M.Sc. Computer Science",
+            "year": 2014
+        },
+        {
+            "institution": "Istanbul Technical University",
+            "location": "Istanbul, Turkey",
+            "degree": "B.Sc. Statistics",
+            "year": 2011
+        }
+    ],
+    "skills": [
+        "Python",
+        "XGBoost",
+        "LightGBM",
+        "TensorFlow",
+        "GCP",
+        "Vertex AI",
+        "Apache Beam",
+        "BigQuery",
+        "Terraform",
+        "SQL",
+        "CI/CD"
+    ],
+    "certifications": [
+        "GCP Professional ML Engineer",
+        "TensorFlow Developer",
+        "FinData Hackathon 1st Place"
+    ],
+    "contact": {
+        "company": "Arcadia Network",
+        "address": "Lichtenbergstra\u00dfe 6, 85748 M\u00fcnchen.",
+        "email": "info@arcadianetwork.io"
+    }
+}

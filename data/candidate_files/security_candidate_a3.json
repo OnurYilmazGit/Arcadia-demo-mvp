@@ -1,0 +1,56 @@
+{
+    "id": "security_candidate_a3",
+    "role": "Senior AI/ML Engineer",
+    "location": "Stuttgart, Germany",
+    "profile_summary": "Penetration tester with 8+ years in automotive and IoT platforms. Specialized in offensive security, fuzzing, firmware analysis, and attack simulations.",
+    "experience": [
+        {
+            "title": "Red Team Specialist, AutoSec GmbH; Stuttgart, Germany \u2014 2018\u2013Present",
+            "summary": "Led penetration tests on vehicle ECUs and mobile apps. Performed fuzz testing on CAN bus and Bluetooth protocols."
+        },
+        {
+            "title": "Security Researcher, DriveSafe AG; Ulm, Germany \u2014 2014\u20132018",
+            "summary": "Discovered 12+ vulnerabilities in automotive firmware. Reverse-engineered binaries using Ghidra and IDA Pro."
+        },
+        {
+            "title": "Pentester, SecureMotion UG; Karlsruhe, Germany \u2014 2012\u20132014",
+            "summary": "Simulated wireless attacks, built rogue access point tests, and trained internal blue team response."
+        }
+    ],
+    "education": [
+        {
+            "institution": "University of Stuttgart",
+            "location": "Stuttgart",
+            "degree": "M.Sc. Embedded Security",
+            "year": 2012
+        },
+        {
+            "institution": "University of Novi Sad",
+            "location": "Novi Sad",
+            "degree": "B.Sc. Computer Engineering",
+            "year": 2009
+        }
+    ],
+    "skills": [
+        "Penetration Testing",
+        "CAN Bus",
+        "Bluetooth Security",
+        "Ghidra",
+        "IDA Pro",
+        "Fuzzing",
+        "Firmware Analysis",
+        "Reverse Engineering",
+        "Red Team",
+        "Automotive Security"
+    ],
+    "certifications": [
+        "OSCP \u2013 Offensive Security Certified Professional",
+        "Automotive Hacking Professional (Cybrary)",
+        "SANS 660 \u2013 Advanced Pen Testing"
+    ],
+    "contact": {
+        "company": "Arcadia Network",
+        "address": "Lichtenbergstra\u00dfe 6, 85748 M\u00fcnchen.",
+        "email": "info@arcadianetwork.io"
+    }
+}

@@ -1,0 +1,56 @@
+{
+    "id": "devops_candidate_a1",
+    "role": "Senior AI/ML Engineer",
+    "location": "Berlin, Germany",
+    "profile_summary": "DevOps engineer with 10+ years of experience automating infrastructure, monitoring systems, and ensuring CI/CD in enterprise-scale SaaS environments.",
+    "experience": [
+        {
+            "title": "DevOps Lead, CloudCore GmbH; Berlin, Germany \u2014 2018\u2013Present",
+            "summary": "Led migration to Kubernetes-based infrastructure on GCP. Built Terraform modules, implemented monitoring with Prometheus + Grafana."
+        },
+        {
+            "title": "Senior DevOps Engineer, ScaleStack AG; Hamburg, Germany \u2014 2014\u20132018",
+            "summary": "Automated deployment pipelines using Jenkins and Ansible. Integrated SSO with secure IAM roles in AWS."
+        },
+        {
+            "title": "Systems Engineer, LogicLane UG; Potsdam, Germany \u2014 2012\u20132014",
+            "summary": "Managed Linux servers and automated backup/recovery workflows with Bash and Python."
+        }
+    ],
+    "education": [
+        {
+            "institution": "TU Berlin",
+            "location": "Berlin",
+            "degree": "M.Sc. Computer Engineering",
+            "year": 2012
+        },
+        {
+            "institution": "Ankara University",
+            "location": "Ankara",
+            "degree": "B.Sc. Computer Systems",
+            "year": 2009
+        }
+    ],
+    "skills": [
+        "Terraform",
+        "Kubernetes",
+        "GCP",
+        "AWS",
+        "Jenkins",
+        "Prometheus",
+        "Grafana",
+        "Ansible",
+        "Python",
+        "Bash"
+    ],
+    "certifications": [
+        "CKA \u2013 Certified Kubernetes Administrator",
+        "AWS SysOps Administrator",
+        "HashiCorp Certified: Terraform Associate"
+    ],
+    "contact": {
+        "company": "Arcadia Network",
+        "address": "Lichtenbergstra\u00dfe 6, 85748 M\u00fcnchen.",
+        "email": "info@arcadianetwork.io"
+    }
+}

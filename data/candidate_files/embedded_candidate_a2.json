@@ -1,0 +1,56 @@
+{
+    "id": "embedded_candidate_a2",
+    "role": "Senior AI/ML Engineer",
+    "location": "Berlin, Germany",
+    "profile_summary": "IoT systems engineer with 10+ years building smart home devices. Experienced with ESP32, low-power wireless protocols, and edge firmware optimization.",
+    "experience": [
+        {
+            "title": "IoT Engineer, HomeIQ GmbH; Berlin, Germany \u2014 2016\u2013Present",
+            "summary": "Built ESP32-based device firmware for Zigbee/Z-Wave smart sensors. Developed OTA update protocols and power-optimized battery usage."
+        },
+        {
+            "title": "Embedded Developer, SmartNode UG; Hamburg, Germany \u2014 2012\u20132016",
+            "summary": "Developed BLE mesh communication for device coordination and implemented cloud sync routines with MQTT."
+        },
+        {
+            "title": "R&D Engineer, CoreNet AG; Hannover, Germany \u2014 2010\u20132012",
+            "summary": "Prototyped home gateway firmware using embedded Linux and Node.js bindings."
+        }
+    ],
+    "education": [
+        {
+            "institution": "HTW Berlin",
+            "location": "Berlin",
+            "degree": "M.Sc. Embedded Networking",
+            "year": 2011
+        },
+        {
+            "institution": "University of Tirana",
+            "location": "Tirana",
+            "degree": "B.Sc. Computer Systems",
+            "year": 2008
+        }
+    ],
+    "skills": [
+        "ESP32",
+        "Zigbee",
+        "Z-Wave",
+        "MQTT",
+        "BLE Mesh",
+        "Embedded Linux",
+        "Low Power IoT",
+        "OTA",
+        "Node.js",
+        "C"
+    ],
+    "certifications": [
+        "Certified IoT Developer \u2013 ESP Series",
+        "Zigbee Alliance Integration Certificate",
+        "BLE Mesh Communications Expert"
+    ],
+    "contact": {
+        "company": "Arcadia Network",
+        "address": "Lichtenbergstra\u00dfe 6, 85748 M\u00fcnchen.",
+        "email": "info@arcadianetwork.io"
+    }
+}

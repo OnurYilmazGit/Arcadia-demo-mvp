@@ -1,0 +1,65 @@
+{
+    "id": "candidate_a1",
+    "role": "Senior AI/ML Engineer",
+    "location": "Munich, Germany",
+    "profile_summary": "AI/ML Engineer with 8+ years of experience building and deploying models in healthcare and SaaS. Skilled in NLP, MLOps, and scalable cloud AI systems.",
+    "experience": [
+        {
+            "title": "Senior ML Engineer",
+            "company": "MedTech Innovations GmbH",
+            "location": "Munich, Germany",
+            "duration": "2020\u2013Present",
+            "summary": "Led predictive models for patient risk scoring and NLP summarization; deployed with AWS SageMaker and CI/CD pipelines."
+        },
+        {
+            "title": "ML Engineer",
+            "company": "HealthAI Labs",
+            "location": "Berlin, Germany",
+            "duration": "2017\u20132020",
+            "summary": "Developed LSTM-based forecasts and real-time anomaly detectors for hospital data; 93% accuracy on alerts."
+        },
+        {
+            "title": "Data Scientist",
+            "company": "RetailAnalytics Inc.",
+            "location": "Hamburg, Germany",
+            "duration": "2015\u20132017",
+            "summary": "Built segmentation models and automated ETL pipelines processing 100M+ records/day."
+        }
+    ],
+    "education": [
+        {
+            "institution": "TUM",
+            "location": "Munich",
+            "degree": "M.Sc. Data Science",
+            "year": 2015
+        },
+        {
+            "institution": "University of Delhi",
+            "location": "Delhi",
+            "degree": "B.Sc. Computer Science",
+            "year": 2013
+        }
+    ],
+    "skills": [
+        "Python",
+        "PyTorch",
+        "TensorFlow",
+        "Hugging Face",
+        "AWS SageMaker",
+        "GCP",
+        "Airflow",
+        "Kubernetes",
+        "SQL",
+        "MLOps"
+    ],
+    "certifications": [
+        "AWS ML Specialty",
+        "DeepLearning.AI TensorFlow Cert",
+        "Databricks Engineer Associate"
+    ],
+    "contact": {
+        "company": "Arcadia Network",
+        "address": "Lichtenbergstra\u00dfe 6, 85748 M\u00fcnchen.",
+        "email": "info@arcadianetwork.io"
+    }
+}

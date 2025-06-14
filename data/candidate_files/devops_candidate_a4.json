@@ -1,0 +1,56 @@
+{
+    "id": "devops_candidate_a4",
+    "role": "Senior AI/ML Engineer",
+    "location": "Munich, Germany",
+    "profile_summary": "Platform-focused DevOps engineer with 10+ years of experience in connected mobility systems and transportation platforms. Expertise in GitOps, infrastructure as code, and edge deployments.",
+    "experience": [
+        {
+            "title": "Platform Engineer, MoveOS GmbH; Munich, Germany \u2014 2019\u2013Present",
+            "summary": "Deployed GitOps-based platform using ArgoCD and Helm. Built edge compute rollout system using K3s clusters and automated OTA updates."
+        },
+        {
+            "title": "DevOps Consultant, AutoPlatform AG; Augsburg, Germany \u2014 2015\u20132019",
+            "summary": "Implemented IaC with Pulumi and dynamic infrastructure scaling with Kubernetes. Supported CI/CD for autonomous systems simulations."
+        },
+        {
+            "title": "Linux Systems Engineer, DriveTech UG; Regensburg, Germany \u2014 2012\u20132015",
+            "summary": "Automated OS provisioning using PXE boot, Ansible, and integrated monitoring stack with Zabbix."
+        }
+    ],
+    "education": [
+        {
+            "institution": "Technical University of Munich (TUM)",
+            "location": "Munich",
+            "degree": "M.Sc. Embedded Systems and Networks",
+            "year": 2012
+        },
+        {
+            "institution": "University of Sofia",
+            "location": "Sofia",
+            "degree": "B.Sc. Computer Engineering",
+            "year": 2009
+        }
+    ],
+    "skills": [
+        "GitOps",
+        "ArgoCD",
+        "Helm",
+        "Pulumi",
+        "K3s",
+        "Ansible",
+        "PXE",
+        "Kubernetes",
+        "Zabbix",
+        "CI/CD"
+    ],
+    "certifications": [
+        "GitOps Advanced \u2013 ArgoCD & Helm",
+        "Pulumi Infrastructure Expert",
+        "Certified Kubernetes Edge Administrator"
+    ],
+    "contact": {
+        "company": "Arcadia Network",
+        "address": "Lichtenbergstra\u00dfe 6, 85748 M\u00fcnchen.",
+        "email": "info@arcadianetwork.io"
+    }
+}

@@ -1,0 +1,56 @@
+{
+    "id": "security_candidate_a1",
+    "role": "Senior AI/ML Engineer",
+    "location": "Berlin, Germany",
+    "profile_summary": "AppSec engineer with 10+ years of experience securing SaaS platforms. Specialized in secure coding practices, code audits, and integrating SAST/DAST tools into CI/CD pipelines.",
+    "experience": [
+        {
+            "title": "Application Security Lead, SaaSecure GmbH; Berlin, Germany \u2014 2018\u2013Present",
+            "summary": "Integrated Snyk and SonarQube into CI/CD pipeline. Conducted secure code training and threat modeling workshops for development teams."
+        },
+        {
+            "title": "Senior Security Analyst, WebShield AG; Hamburg, Germany \u2014 2014\u20132018",
+            "summary": "Performed regular security audits and penetration testing of customer portals. Managed OWASP top 10 risk mitigation strategy."
+        },
+        {
+            "title": "Security Consultant, SoftLock UG; Potsdam, Germany \u2014 2011\u20132014",
+            "summary": "Consulted startups on secure API design, session management, and cookie encryption best practices."
+        }
+    ],
+    "education": [
+        {
+            "institution": "HTW Berlin",
+            "location": "Berlin",
+            "degree": "M.Sc. Cybersecurity",
+            "year": 2011
+        },
+        {
+            "institution": "University of Zagreb",
+            "location": "Zagreb",
+            "degree": "B.Sc. Computer Science",
+            "year": 2008
+        }
+    ],
+    "skills": [
+        "Snyk",
+        "SonarQube",
+        "OWASP",
+        "CI/CD Security",
+        "Penetration Testing",
+        "API Security",
+        "Threat Modeling",
+        "DAST",
+        "SAST",
+        "Burp Suite"
+    ],
+    "certifications": [
+        "Certified Ethical Hacker (CEH)",
+        "SANS Secure Software Lifecycle Professional",
+        "OWASP Advanced AppSec Training"
+    ],
+    "contact": {
+        "company": "Arcadia Network",
+        "address": "Lichtenbergstra\u00dfe 6, 85748 M\u00fcnchen.",
+        "email": "info@arcadianetwork.io"
+    }
+}

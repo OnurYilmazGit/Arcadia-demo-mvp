@@ -1,0 +1,56 @@
+{
+    "id": "devops_candidate_a2",
+    "role": "Senior AI/ML Engineer",
+    "location": "Frankfurt, Germany",
+    "profile_summary": "Cloud infrastructure engineer with 8+ years of experience in secure, scalable infrastructure for financial institutions. Focused on network security, HA architecture, and compliance automation.",
+    "experience": [
+        {
+            "title": "Cloud Infrastructure Engineer, BankSecure AG; Frankfurt, Germany \u2014 2019\u2013Present",
+            "summary": "Built high-availability cloud setup using Azure and AKS. Designed VPN-secured VNET architecture and implemented ISO 27001 policy automation."
+        },
+        {
+            "title": "DevOps Engineer, FinServe GmbH; Mainz, Germany \u2014 2015\u20132019",
+            "summary": "Managed CI/CD for regulated environments using GitLab CI, Keycloak IAM, and container scanning pipelines."
+        },
+        {
+            "title": "Junior Sysadmin, FastFin UG; Wiesbaden, Germany \u2014 2013\u20132015",
+            "summary": "Monitored logs and deployed patch updates. Wrote PowerShell scripts for server provisioning."
+        }
+    ],
+    "education": [
+        {
+            "institution": "Goethe University Frankfurt",
+            "location": "Frankfurt",
+            "degree": "M.Sc. IT Security & Infrastructure",
+            "year": 2015
+        },
+        {
+            "institution": "Ege University",
+            "location": "Izmir",
+            "degree": "B.Sc. Computer Science",
+            "year": 2011
+        }
+    ],
+    "skills": [
+        "Azure",
+        "AKS",
+        "Keycloak",
+        "GitLab CI",
+        "PowerShell",
+        "VNET",
+        "ISO 27001",
+        "Terraform",
+        "Docker",
+        "Linux"
+    ],
+    "certifications": [
+        "Azure Certified Solutions Architect",
+        "Certified Information Systems Security Professional (CISSP)",
+        "GitLab DevOps Specialist"
+    ],
+    "contact": {
+        "company": "Arcadia Network",
+        "address": "Lichtenbergstra\u00dfe 6, 85748 M\u00fcnchen.",
+        "email": "info@arcadianetwork.io"
+    }
+}

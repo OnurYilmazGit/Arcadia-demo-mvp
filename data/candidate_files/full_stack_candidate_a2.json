@@ -1,0 +1,56 @@
+{
+    "id": "full_stack_candidate_a2",
+    "role": "Senior AI/ML Engineer",
+    "location": "Hamburg, Germany",
+    "profile_summary": "Full-Stack SaaS engineer with 10+ years in healthtech and B2B platforms. Expert in scalable frontend systems (Next.js, TypeScript), backend APIs, and HIPAA-compliant systems.",
+    "experience": [
+        {
+            "title": "Full-Stack Tech Lead, MediCloud GmbH; Hamburg, Germany \u2014 2019\u2013Present",
+            "summary": "Led buildout of patient portal using Next.js and Django. Ensured GDPR/HIPAA compliance. Integrated Firebase auth and secure data workflows."
+        },
+        {
+            "title": "Senior Software Engineer, CareSync AG; Bremen, Germany \u2014 2015\u20132019",
+            "summary": "Developed custom scheduling module in Vue.js and Python Flask backend. Migrated app to microservices using Docker Compose."
+        },
+        {
+            "title": "Web Developer, eHealthSoft; Essen, Germany \u2014 2012\u20132015",
+            "summary": "Maintained and optimized legacy jQuery dashboard; migrated gradually to Angular 2."
+        }
+    ],
+    "education": [
+        {
+            "institution": "University of Hamburg",
+            "location": "Hamburg",
+            "degree": "M.Sc. Computer Science",
+            "year": 2013
+        },
+        {
+            "institution": "Y\u0131ld\u0131z Technical University",
+            "location": "Istanbul",
+            "degree": "B.Sc. Information Tech.",
+            "year": 2010
+        }
+    ],
+    "skills": [
+        "Next.js",
+        "TypeScript",
+        "Vue.js",
+        "Django",
+        "Flask",
+        "PostgreSQL",
+        "Docker",
+        "Firebase",
+        "Git",
+        "Microservices"
+    ],
+    "certifications": [
+        "Google Firebase Certified Developer",
+        "Advanced Next.js \u2013 Vercel Academy",
+        "HIPAA for Developers Certificate"
+    ],
+    "contact": {
+        "company": "Arcadia Network",
+        "address": "Lichtenbergstra\u00dfe 6, 85748 M\u00fcnchen.",
+        "email": "info@arcadianetwork.io"
+    }
+}

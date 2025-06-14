@@ -1,0 +1,56 @@
+{
+    "id": "dataeng_candidate_a5",
+    "role": "Senior AI/ML Engineer",
+    "location": "Nuremberg, Germany",
+    "profile_summary": "Data infrastructure engineer with 11+ years experience building resilient pipelines and optimization systems for logistics, fleet tracking, and demand forecasting.",
+    "experience": [
+        {
+            "title": "Senior Data Engineer, LogiChain GmbH; Nuremberg, Germany \u2014 2017\u2013Present",
+            "summary": "Built route optimization platform using Python, Redshift, and Airflow. Integrated IoT sensors via MQTT brokers."
+        },
+        {
+            "title": "ETL Developer, SupplyHub AG; Munich, Germany \u2014 2013\u20132017",
+            "summary": "Created batch and stream loaders for order fulfillment and delivery monitoring using Kafka and Flink."
+        },
+        {
+            "title": "Junior BI Analyst, CargoFlow UG; Erlangen, Germany \u2014 2011\u20132013",
+            "summary": "Wrote dashboards and KPIs in Metabase and performed SQL-driven optimizations for delivery SLAs."
+        }
+    ],
+    "education": [
+        {
+            "institution": "FAU Erlangen-N\u00fcrnberg",
+            "location": "N\u00fcrnberg",
+            "degree": "M.Sc. Information Engineering",
+            "year": 2011
+        },
+        {
+            "institution": "Technical University of Sofia",
+            "location": "Sofia",
+            "degree": "B.Sc. Computer Control Systems",
+            "year": 2008
+        }
+    ],
+    "skills": [
+        "Airflow",
+        "Redshift",
+        "Kafka",
+        "Flink",
+        "Python",
+        "Metabase",
+        "MQTT",
+        "ETL",
+        "SQL",
+        "IoT Integration"
+    ],
+    "certifications": [
+        "Logistics Data Specialist \u2013 MITx",
+        "Airflow DAG Architect",
+        "Kafka Stream Processing Professional"
+    ],
+    "contact": {
+        "company": "Arcadia Network",
+        "address": "Lichtenbergstra\u00dfe 6, 85748 M\u00fcnchen.",
+        "email": "info@arcadianetwork.io"
+    }
+}

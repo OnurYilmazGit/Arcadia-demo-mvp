@@ -1,0 +1,56 @@
+{
+    "id": "embedded_candidate_a5",
+    "role": "Senior AI/ML Engineer",
+    "location": "Ingolstadt, Germany",
+    "profile_summary": "Embedded software engineer with 10+ years building ADAS and functional safety modules for automotive platforms (ASIL-D).",
+    "experience": [
+        {
+            "title": "Senior Embedded Developer, DriveVision AG; Ingolstadt, Germany \u2014 2017\u2013Present",
+            "summary": "Implemented ISO 26262-compliant safety logic in C/C++ for LIDAR-based braking. Integrated AUTOSAR stack with CAN/LIN buses."
+        },
+        {
+            "title": "Software Engineer, MobilityCode GmbH; Munich, Germany \u2014 2013\u20132017",
+            "summary": "Developed path prediction module for semi-autonomous cruise systems. Debugged using CANalyzer and Vector tools."
+        },
+        {
+            "title": "Embedded Developer, AutoAI UG; Erlangen, Germany \u2014 2010\u20132013",
+            "summary": "Built BSW layers and diagnostic event storage systems on Renesas RH850 MCUs."
+        }
+    ],
+    "education": [
+        {
+            "institution": "TU Munich",
+            "location": "Munich",
+            "degree": "M.Sc. Automotive Software Engineering",
+            "year": 2010
+        },
+        {
+            "institution": "Technical University of Sofia",
+            "location": "Sofia",
+            "degree": "B.Sc. Mechatronic Systems",
+            "year": 2007
+        }
+    ],
+    "skills": [
+        "C",
+        "AUTOSAR",
+        "CAN",
+        "LIN",
+        "ISO 26262",
+        "ASIL-D",
+        "MCUs",
+        "Functional Safety",
+        "CANalyzer",
+        "ADAS"
+    ],
+    "certifications": [
+        "ISO 26262 Functional Safety Engineer",
+        "Vector Certified Tools User",
+        "AUTOSAR Development Badge"
+    ],
+    "contact": {
+        "company": "Arcadia Network",
+        "address": "Lichtenbergstra\u00dfe 6, 85748 M\u00fcnchen.",
+        "email": "info@arcadianetwork.io"
+    }
+}

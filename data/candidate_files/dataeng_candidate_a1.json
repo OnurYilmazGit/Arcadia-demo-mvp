@@ -1,0 +1,56 @@
+{
+    "id": "dataeng_candidate_a1",
+    "role": "Senior AI/ML Engineer",
+    "location": "Berlin, Germany",
+    "profile_summary": "Senior Data Platform Engineer with 9+ years in building scalable, event-driven data architectures for e-commerce. Expert in streaming, data lakes, and data governance.",
+    "experience": [
+        {
+            "title": "Lead Data Platform Engineer, ShopData GmbH; Berlin, Germany \u2014 2019\u2013Present",
+            "summary": "Architected real-time event pipelines using Kafka, Spark Streaming, and Delta Lake. Established data quality and governance standards."
+        },
+        {
+            "title": "Data Engineer, BasketFlow AG; Leipzig, Germany \u2014 2015\u20132019",
+            "summary": "Built ingestion framework with Apache Nifi and Airflow. Integrated product analytics with BigQuery and Looker."
+        },
+        {
+            "title": "ETL Developer, RetailBits UG; Dresden, Germany \u2014 2013\u20132015",
+            "summary": "Maintained ETL workflows using Informatica. Migrated legacy jobs to Python-based scheduling system."
+        }
+    ],
+    "education": [
+        {
+            "institution": "Humboldt University Berlin",
+            "location": "Berlin",
+            "degree": "M.Sc. Data Engineering",
+            "year": 2013
+        },
+        {
+            "institution": "Bilkent University",
+            "location": "Ankara",
+            "degree": "B.Sc. Computer Engineering",
+            "year": 2010
+        }
+    ],
+    "skills": [
+        "Apache Kafka",
+        "Spark",
+        "Delta Lake",
+        "Airflow",
+        "BigQuery",
+        "Looker",
+        "Apache Nifi",
+        "Python",
+        "ETL",
+        "Data Governance"
+    ],
+    "certifications": [
+        "Databricks Certified Data Engineer",
+        "Google Cloud Professional Data Engineer",
+        "Kafka Streams Specialist"
+    ],
+    "contact": {
+        "company": "Arcadia Network",
+        "address": "Lichtenbergstra\u00dfe 6, 85748 M\u00fcnchen.",
+        "email": "info@arcadianetwork.io"
+    }
+}

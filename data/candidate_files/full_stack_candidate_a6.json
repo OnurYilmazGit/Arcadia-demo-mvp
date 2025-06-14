@@ -1,0 +1,56 @@
+{
+    "id": "full_stack_candidate_a6",
+    "role": "Senior AI/ML Engineer",
+    "location": "Nuremberg, Germany",
+    "profile_summary": "Full-Stack Engineer with 11 years of experience in government and civic technology platforms. Skilled in accessibility-first design, secure architecture, and legacy system modernization.",
+    "experience": [
+        {
+            "title": "GovTech Full-Stack Lead, CivicCloud GmbH; Nuremberg, Germany \u2014 2017\u2013Present",
+            "summary": "Designed secure citizen portal using Vue.js and Laravel. Ensured WCAG 2.1 compliance and handled 150K+ daily sessions."
+        },
+        {
+            "title": "Software Developer, eGov Systems; Munich, Germany \u2014 2013\u20132017",
+            "summary": "Refactored municipal services backend to REST-based architecture. Migrated legacy XML forms to dynamic UI builder."
+        },
+        {
+            "title": "Junior Developer, AdminSoft AG; Augsburg, Germany \u2014 2011\u20132013",
+            "summary": "Assisted in digitization of public record systems; built PDF generation pipeline for certificates."
+        }
+    ],
+    "education": [
+        {
+            "institution": "FAU Erlangen-N\u00fcrnberg",
+            "location": "N\u00fcrnberg",
+            "degree": "M.Sc. Information Technology",
+            "year": 2012
+        },
+        {
+            "institution": "University of Plovdiv",
+            "location": "Plovdiv",
+            "degree": "B.Sc. Information Security",
+            "year": 2009
+        }
+    ],
+    "skills": [
+        "Vue.js",
+        "Laravel",
+        "MySQL",
+        "WCAG",
+        "REST API",
+        "PDFKit",
+        "CI/CD",
+        "Accessibility",
+        "Cybersecurity Basics",
+        "Docker"
+    ],
+    "certifications": [
+        "Certified Laravel Professional",
+        "Accessibility in Tech \u2013 EU Program",
+        "Cybersecurity for Developers (BSI)"
+    ],
+    "contact": {
+        "company": "Arcadia Network",
+        "address": "Lichtenbergstra\u00dfe 6, 85748 M\u00fcnchen.",
+        "email": "info@arcadianetwork.io"
+    }
+}

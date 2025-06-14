@@ -1,0 +1,56 @@
+{
+    "id": "security_candidate_a2",
+    "role": "Senior AI/ML Engineer",
+    "location": "Frankfurt, Germany",
+    "profile_summary": "Cloud Security Engineer with 9+ years securing multi-cloud infrastructures, implementing IAM policies, and performing cloud compliance assessments for regulated environments.",
+    "experience": [
+        {
+            "title": "CloudSec Engineer, TrustBank AG; Frankfurt, Germany \u2014 2017\u2013Present",
+            "summary": "Designed IAM and VPC security for AWS/GCP hybrid environment. Built CIS benchmark monitoring for all deployments."
+        },
+        {
+            "title": "Security Operations Engineer, CloudVault GmbH; Bonn, Germany \u2014 2013\u20132017",
+            "summary": "Integrated GuardDuty, Security Hub, and CloudTrail into alerting pipeline. Handled vulnerability scans and encrypted S3 workflows."
+        },
+        {
+            "title": "Support Engineer, DataCore UG; Koblenz, Germany \u2014 2011\u20132013",
+            "summary": "Assisted in firewall policy rollout, VPN configs, and endpoint encryption for distributed teams."
+        }
+    ],
+    "education": [
+        {
+            "institution": "University of Frankfurt",
+            "location": "Frankfurt",
+            "degree": "M.Sc. Cloud Infrastructure Security",
+            "year": 2011
+        },
+        {
+            "institution": "Istanbul Technical University",
+            "location": "Istanbul",
+            "degree": "B.Sc. Information Systems",
+            "year": 2008
+        }
+    ],
+    "skills": [
+        "AWS",
+        "GCP",
+        "IAM",
+        "CloudTrail",
+        "Security Hub",
+        "CIS Benchmarks",
+        "S3 Encryption",
+        "GuardDuty",
+        "Firewalls",
+        "Cloud Compliance"
+    ],
+    "certifications": [
+        "AWS Certified Security \u2013 Specialty",
+        "GCP Security Engineer Certification",
+        "CIS Benchmark Compliance Auditor"
+    ],
+    "contact": {
+        "company": "Arcadia Network",
+        "address": "Lichtenbergstra\u00dfe 6, 85748 M\u00fcnchen.",
+        "email": "info@arcadianetwork.io"
+    }
+}

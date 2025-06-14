@@ -1,0 +1,56 @@
+{
+    "id": "dataeng_candidate_a4",
+    "role": "Senior AI/ML Engineer",
+    "location": "Stuttgart, Germany",
+    "profile_summary": "Data engineer with 10 years in healthcare analytics, working on secure and high-integrity data pipelines for clinical decision systems and hospital analytics.",
+    "experience": [
+        {
+            "title": "Data Engineer, MedStat GmbH; Stuttgart, Germany \u2014 2018\u2013Present",
+            "summary": "Developed ETL and anonymization pipelines for clinical data. Maintained Redshift-based warehouse with HIPAA-compliant data flows."
+        },
+        {
+            "title": "Analytics Engineer, BioCore AG; Heidelberg, Germany \u2014 2014\u20132018",
+            "summary": "Led metrics tracking platform for patient outcomes using Spark and Airflow. Developed patient readmission risk datasets."
+        },
+        {
+            "title": "Data Integration Specialist, HealthMetrics UG; Freiburg, Germany \u2014 2011\u20132014",
+            "summary": "Worked on HL7 data ingestion and mapping systems from hospital IT systems to research-grade datasets."
+        }
+    ],
+    "education": [
+        {
+            "institution": "University of Stuttgart",
+            "location": "Stuttgart",
+            "degree": "M.Sc. Health Data Engineering",
+            "year": 2011
+        },
+        {
+            "institution": "University of Tirana",
+            "location": "Tirana",
+            "degree": "B.Sc. Informatics",
+            "year": 2008
+        }
+    ],
+    "skills": [
+        "Redshift",
+        "Spark",
+        "Airflow",
+        "HIPAA",
+        "HL7",
+        "ETL",
+        "Python",
+        "SQL",
+        "AWS",
+        "Data Anonymization"
+    ],
+    "certifications": [
+        "AWS Data Analytics Specialty",
+        "HIPAA for Engineers Certification",
+        "HL7 Integration Certified Specialist"
+    ],
+    "contact": {
+        "company": "Arcadia Network",
+        "address": "Lichtenbergstra\u00dfe 6, 85748 M\u00fcnchen.",
+        "email": "info@arcadianetwork.io"
+    }
+}

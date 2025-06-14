@@ -1,0 +1,56 @@
+{
+    "id": "embedded_candidate_a3",
+    "role": "Senior AI/ML Engineer",
+    "location": "Stuttgart, Germany",
+    "profile_summary": "Edge AI engineer with 9 years developing embedded ML solutions for real-time industrial automation systems. Skilled in model quantization and deployment on resource-constrained hardware.",
+    "experience": [
+        {
+            "title": "Edge AI Engineer, SmartLine AG; Stuttgart, Germany \u2014 2017\u2013Present",
+            "summary": "Deployed vision-based anomaly detection using TensorFlow Lite on NVIDIA Jetson. Reduced false positives by 42% in assembly line inspection."
+        },
+        {
+            "title": "Embedded ML Engineer, MechaSense GmbH; Ulm, Germany \u2014 2014\u20132017",
+            "summary": "Converted CNN models to TFLite and optimized with ARM NN. Built real-time deployment flow for MCU inference."
+        },
+        {
+            "title": "Embedded Dev, SoftSignal UG; Heilbronn, Germany \u2014 2012\u20132014",
+            "summary": "Built serial/UART-based interfaces for industrial sensors. Implemented basic DSP filters in C."
+        }
+    ],
+    "education": [
+        {
+            "institution": "University of Stuttgart",
+            "location": "Stuttgart",
+            "degree": "M.Sc. Embedded AI Systems",
+            "year": 2012
+        },
+        {
+            "institution": "University of Plovdiv",
+            "location": "Plovdiv",
+            "degree": "B.Sc. Mechatronics",
+            "year": 2009
+        }
+    ],
+    "skills": [
+        "TensorFlow Lite",
+        "Jetson",
+        "ARM NN",
+        "Edge AI",
+        "DSP",
+        "CNN Quantization",
+        "C",
+        "UART",
+        "Real-Time ML",
+        "MCU Deployment"
+    ],
+    "certifications": [
+        "TensorFlow Lite Deployment Certificate",
+        "NVIDIA Jetson Edge AI Badge",
+        "ARM Cortex Optimization Workshop"
+    ],
+    "contact": {
+        "company": "Arcadia Network",
+        "address": "Lichtenbergstra\u00dfe 6, 85748 M\u00fcnchen.",
+        "email": "info@arcadianetwork.io"
+    }
+}

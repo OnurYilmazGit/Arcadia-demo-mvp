@@ -1,0 +1,55 @@
+{
+    "id": "candidate_a6",
+    "role": "Senior AI/ML Engineer",
+    "location": "Heidelberg, Germany",
+    "profile_summary": "AI/ML Research Scientist with 13 years in biomedical AI and clinical research. Skilled in model interpretability, federated learning, and publishing peer-reviewed results.",
+    "experience": [
+        {
+            "title": "Principal ML Scientist, BioML Institute; Heidelberg, Germany \u2014 2018\u2013Present",
+            "summary": "Led federated learning research across 6 hospitals. Published in NeurIPS and Nature Medicine."
+        },
+        {
+            "title": "AI Researcher, MedNet AI; Freiburg, Germany \u2014 2014\u20132018",
+            "summary": "Developed interpretable diagnostic models for radiology. Applied SHAP and LIME on CNNs."
+        },
+        {
+            "title": "Postdoc Researcher, EMBL; Heidelberg, Germany \u2014 2011\u20132014",
+            "summary": "Worked on protein structure prediction models using ensemble learning. Co-authored 5 publications."
+        }
+    ],
+    "education": [
+        {
+            "institution": "Heidelberg University",
+            "location": "Heidelberg",
+            "degree": "Ph.D. in Machine Learning for Biomedicine",
+            "year": 2011
+        },
+        {
+            "institution": "University of Milan",
+            "location": "Milan",
+            "degree": "M.Sc. Bioinformatics",
+            "year": 2007
+        }
+    ],
+    "skills": [
+        "Python",
+        "PyTorch",
+        "Federated Learning",
+        "SHAP",
+        "LIME",
+        "TensorFlow",
+        "Bioinformatics",
+        "Pandas",
+        "Scikit-learn"
+    ],
+    "certifications": [
+        "NeurIPS Best Paper Nominee",
+        "Nature Medicine Published Author",
+        "TensorFlow Certified Developer"
+    ],
+    "contact": {
+        "company": "Arcadia Network",
+        "address": "Lichtenbergstra\u00dfe 6, 85748 M\u00fcnchen.",
+        "email": "info@arcadianetwork.io"
+    }
+}

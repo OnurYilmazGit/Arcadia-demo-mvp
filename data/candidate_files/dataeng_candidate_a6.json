@@ -1,0 +1,56 @@
+{
+    "id": "dataeng_candidate_a6",
+    "role": "Senior AI/ML Engineer",
+    "location": "D\u00fcsseldorf, Germany",
+    "profile_summary": "Platform engineer with 12 years in telecom-grade data pipelines, large-scale ingestion systems, and columnar data lake optimization.",
+    "experience": [
+        {
+            "title": "Data Platform Engineer, TelStream AG; D\u00fcsseldorf, Germany \u2014 2016\u2013Present",
+            "summary": "Designed high-throughput ingestion platform using Apache Hudi, Kafka, and Iceberg for telecom CDR data. Optimized Parquet write performance by 40%."
+        },
+        {
+            "title": "DataOps Engineer, ComNet GmbH; Essen, Germany \u2014 2012\u20132016",
+            "summary": "Automated CI/CD of big data jobs on Hadoop clusters. Maintained data catalog and schema registry integrations."
+        },
+        {
+            "title": "Data Analyst, DialNet UG; Bochum, Germany \u2014 2010\u20132012",
+            "summary": "Conducted churn prediction analytics and automated B2B usage reports using SparkSQL."
+        }
+    ],
+    "education": [
+        {
+            "institution": "Heinrich Heine University D\u00fcsseldorf",
+            "location": "D\u00fcsseldorf",
+            "degree": "M.Sc. Data Infrastructure Engineering",
+            "year": 2010
+        },
+        {
+            "institution": "University of Split",
+            "location": "Split",
+            "degree": "B.Sc. Electrical Engineering",
+            "year": 2007
+        }
+    ],
+    "skills": [
+        "Apache Hudi",
+        "Kafka",
+        "Apache Iceberg",
+        "Parquet",
+        "SparkSQL",
+        "Hadoop",
+        "Data Lakes",
+        "CI/CD",
+        "Schema Registry",
+        "Big Data Ops"
+    ],
+    "certifications": [
+        "Apache Iceberg Contributor Badge",
+        "Hudi Advanced Workshop",
+        "Telecom Data Infrastructure Professional"
+    ],
+    "contact": {
+        "company": "Arcadia Network",
+        "address": "Lichtenbergstra\u00dfe 6, 85748 M\u00fcnchen.",
+        "email": "info@arcadianetwork.io"
+    }
+}
