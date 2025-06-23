@@ -144,14 +144,14 @@ export default function HomePage() {
   }
 
   const handleDownloadResume = (candidateId: string) => {
-    const resumeUrl = candidateService.getResumeUrl(candidateId) // This should point to a PDF
-    const link = document.createElement("a")
-    link.href = resumeUrl
-    link.download = `${candidateId}_resume.pdf`
-    link.target = "_blank"
-    document.body.appendChild(link)
-    link.click()
-    document.body.removeChild(link)
+    const resumeUrl = candidateService.getResumeUrl(candidateId)
+    if (resumeUrl === "#") {
+      console.error(`No resume found for candidate: ${candidateId}`)
+      return
+    }
+
+    // Open PDF in new tab for download
+    window.open(resumeUrl, "_blank")
   }
 
   const getMatchedCandidateDetails = (candidateId: string): MatchedCandidate | undefined => {

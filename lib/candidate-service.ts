@@ -87,37 +87,101 @@ class ShortlistManager {
   }
 }
 
-const FEMALE_FIRST_NAMES = [
-  "sarah",
-  "emily",
-  "maria",
-  "jennifer",
-  "lisa",
-  "rachel",
-  "amanda",
-  "michelle",
-  "nicole",
-  "jessica",
-  "stephanie",
-  "karen",
-  "sandra",
-  "donna",
-  "melissa",
-  "laura",
-  "anna",
-  "julia",
-  "sophia",
-  "clara",
-]
-
 class CandidateService {
   private candidateSkillsData: CandidateSkills[] | null = null
   public shortlistManager = new ShortlistManager()
 
-  private isFemale(name: string): boolean {
-    const firstName = name.toLowerCase().split(" ")[0]
-    return FEMALE_FIRST_NAMES.includes(firstName)
+  // PDF file mapping for Vercel Blob Storage
+  private readonly PDF_FILE_MAPPING: Record<string, string> = {
+    // AI/ML Engineers
+    candidate_a1: "Candidate_A1_AI_ML_Engineer_Final.pdf",
+    candidate_a2: "Candidate_A2_AI_ML_Engineer_Fintech.pdf",
+    candidate_a3: "candidate_a3.pdf",
+    candidate_a4: "candidate_a4.pdf",
+    candidate_a5: "candidate_a5.pdf",
+    candidate_a6: "candidate_a6.pdf",
+
+    // Data Engineers
+    dataeng_candidate_a1: "dataeng_candidate_a1.pdf",
+    dataeng_candidate_a2: "dataeng_candidate_a2.pdf",
+    dataeng_candidate_a3: "dataeng_candidate_a3.pdf",
+    dataeng_candidate_a4: "dataeng_candidate_a4.pdf",
+    dataeng_candidate_a5: "dataeng_candidate_a5.pdf",
+    dataeng_candidate_a6: "dataeng_candidate_a6.pdf",
+
+    // DevOps Engineers
+    devops_candidate_a1: "devops_candidate_a1.pdf",
+    devops_candidate_a2: "devops_candidate_a2.pdf",
+    devops_candidate_a3: "devops_candidate_a3.pdf",
+    devops_candidate_a4: "devops_candidate_a4.pdf",
+    devops_candidate_a5: "devops_candidate_a5.pdf",
+    devops_candidate_a6: "devops_candidate_a6.pdf",
+
+    // Embedded Engineers
+    embedded_candidate_a1: "embedded_candidate_a1.pdf",
+    embedded_candidate_a2: "embedded_candidate_a2.pdf",
+    embedded_candidate_a3: "embedded_candidate_a3.pdf",
+    embedded_candidate_a4: "embedded_candidate_a4.pdf",
+    embedded_candidate_a5: "embedded_candidate_a5.pdf",
+    embedded_candidate_a6: "embedded_candidate_a6.pdf",
+
+    // Full Stack Engineers
+    full_stack_candidate_a1: "full_stack_candidate_a1.pdf",
+    full_stack_candidate_a2: "full_stack_candidate_a2.pdf",
+    full_stack_candidate_a3: "full_stack_candidate_a3.pdf",
+    full_stack_candidate_a4: "full_stack_candidate_a4.pdf",
+    full_stack_candidate_a5: "full_stack_candidate_a5.pdf",
+    full_stack_candidate_a6: "full_stack_candidate_a6.pdf",
+
+    // Security Engineers
+    security_candidate_a1: "security_candidate_a1.pdf",
+    security_candidate_a2: "security_candidate_a2.pdf",
+    security_candidate_a3: "security_candidate_a3.pdf",
   }
+
+  // Professional profile picture mapping
+  private readonly PROFILE_PICTURE_MAPPING: Record<string, string> = {
+    candidate_a1: "/candidate-profiles/candidate-a1-profile.png",
+    candidate_a2: "/candidate-profiles/candidate-a2-profile.png",
+    candidate_a3: "/candidate-profiles/candidate-a3-profile.png",
+    candidate_a4: "/candidate-profiles/candidate-a4-profile.png",
+    candidate_a5: "/candidate-profiles/candidate-a1-profile.png", // Reuse similar profile
+    candidate_a6: "/candidate-profiles/candidate-a3-profile.png", // Reuse similar profile
+
+    dataeng_candidate_a1: "/candidate-profiles/dataeng-candidate-a1-profile.png",
+    dataeng_candidate_a2: "/candidate-profiles/dataeng-candidate-a1-profile.png", // Reuse
+    dataeng_candidate_a3: "/candidate-profiles/candidate-a3-profile.png", // Reuse
+    dataeng_candidate_a4: "/candidate-profiles/candidate-a1-profile.png", // Reuse
+    dataeng_candidate_a5: "/candidate-profiles/dataeng-candidate-a1-profile.png", // Reuse
+    dataeng_candidate_a6: "/candidate-profiles/candidate-a3-profile.png", // Reuse
+
+    devops_candidate_a1: "/candidate-profiles/devops-candidate-a1-profile.png",
+    devops_candidate_a2: "/candidate-profiles/devops-candidate-a1-profile.png", // Reuse
+    devops_candidate_a3: "/candidate-profiles/candidate-a2-profile.png", // Reuse
+    devops_candidate_a4: "/candidate-profiles/candidate-a4-profile.png", // Reuse
+    devops_candidate_a5: "/candidate-profiles/devops-candidate-a1-profile.png", // Reuse
+    devops_candidate_a6: "/candidate-profiles/candidate-a2-profile.png", // Reuse
+
+    full_stack_candidate_a1: "/candidate-profiles/fullstack-candidate-a1-profile.png",
+    full_stack_candidate_a2: "/candidate-profiles/fullstack-candidate-a1-profile.png", // Reuse
+    full_stack_candidate_a3: "/candidate-profiles/candidate-a1-profile.png", // Reuse
+    full_stack_candidate_a4: "/candidate-profiles/candidate-a3-profile.png", // Reuse
+    full_stack_candidate_a5: "/candidate-profiles/fullstack-candidate-a1-profile.png", // Reuse
+    full_stack_candidate_a6: "/candidate-profiles/candidate-a1-profile.png", // Reuse
+
+    security_candidate_a1: "/candidate-profiles/security-candidate-a1-profile.png",
+    security_candidate_a2: "/candidate-profiles/security-candidate-a1-profile.png", // Reuse
+    security_candidate_a3: "/candidate-profiles/candidate-a2-profile.png", // Reuse
+
+    embedded_candidate_a1: "/candidate-profiles/candidate-a1-profile.png", // Reuse
+    embedded_candidate_a2: "/candidate-profiles/candidate-a3-profile.png", // Reuse
+    embedded_candidate_a3: "/candidate-profiles/dataeng-candidate-a1-profile.png", // Reuse
+    embedded_candidate_a4: "/candidate-profiles/fullstack-candidate-a1-profile.png", // Reuse
+    embedded_candidate_a5: "/candidate-profiles/candidate-a1-profile.png", // Reuse
+    embedded_candidate_a6: "/candidate-profiles/candidate-a3-profile.png", // Reuse
+  }
+
+  private readonly BLOB_BASE_URL = "https://gsm9wndtt34brfr2.public.blob.vercel-storage.com/candidate_cv"
 
   async loadCandidateSkills(): Promise<CandidateSkills[]> {
     if (this.candidateSkillsData) return this.candidateSkillsData
@@ -140,12 +204,6 @@ class CandidateService {
     ]
   }
 
-  private getAvatarQuery(name: string): string {
-    const isFemale = this.isFemale(name)
-    const genderTerm = isFemale ? "professional woman" : "professional man"
-    return `modern ${genderTerm} headshot, tech industry, soft lighting, neutral background, high quality avatar`
-  }
-
   async loadCandidateDetails(candidateId: string): Promise<any> {
     const allSkills = await this.loadCandidateSkills()
     const basicInfo = allSkills.find((c) => c.id === candidateId)
@@ -154,7 +212,16 @@ class CandidateService {
   }
 
   getResumeUrl(candidateId: string): string {
-    return `/api/download-resume/${candidateId}`
+    const fileName = this.PDF_FILE_MAPPING[candidateId]
+    if (!fileName) {
+      console.warn(`No PDF file found for candidate: ${candidateId}`)
+      return "#"
+    }
+    return `${this.BLOB_BASE_URL}/${fileName}`
+  }
+
+  private getProfilePicture(candidateId: string): string {
+    return this.PROFILE_PICTURE_MAPPING[candidateId] || "/placeholder-user.jpg"
   }
 
   private getGermanCities(): string[] {
@@ -189,7 +256,7 @@ class CandidateService {
       summary: `Dynamic and results-oriented ${title} with ${experienceYears} years of experience.`,
       skills: ["Python", "JavaScript", "React", "Node.js", "AWS", "Docker", "SQL"],
       salary: `€${minSal.toLocaleString()} - €${maxSal.toLocaleString()}`,
-      avatar: `/placeholder.svg?height=128&width=128&query=${encodeURIComponent(this.getAvatarQuery(name))}`,
+      avatar: this.getProfilePicture(candidateId),
     }
   }
 

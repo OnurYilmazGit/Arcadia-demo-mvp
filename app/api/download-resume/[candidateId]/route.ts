@@ -1,78 +1,168 @@
 import { type NextRequest, NextResponse } from "next/server"
 
+// Vercel Blob Storage configuration
+const VERCEL_BLOB_BASE_URL = "https://gsm9wndtt34brfr2.public.blob.vercel-storage.com/candidate_cv"
+
+// Mapping of candidate IDs to their actual file names in Vercel Blob Storage
+const CANDIDATE_FILE_MAPPING: Record<string, string> = {
+  // AI/ML Engineers
+  candidate_a1: "Candidate_A1_AI_ML_Engineer_Final",
+  candidate_a2: "Candidate_A2_AI_ML_Engineer_Fintech",
+  candidate_a3: "candidate_a3",
+  candidate_a4: "candidate_a4",
+  candidate_a5: "candidate_a5",
+  candidate_a6: "candidate_a6",
+
+  // Data Engineers
+  dataeng_candidate_a1: "dataeng_candidate_a1",
+  dataeng_candidate_a2: "dataeng_candidate_a2",
+  dataeng_candidate_a3: "dataeng_candidate_a3",
+  dataeng_candidate_a4: "dataeng_candidate_a4",
+  dataeng_candidate_a5: "dataeng_candidate_a5",
+  dataeng_candidate_a6: "dataeng_candidate_a6",
+
+  // DevOps Engineers
+  devops_candidate_a1: "devops_candidate_a1",
+  devops_candidate_a2: "devops_candidate_a2",
+  devops_candidate_a3: "devops_candidate_a3",
+  devops_candidate_a4: "devops_candidate_a4",
+  devops_candidate_a5: "devops_candidate_a5",
+  devops_candidate_a6: "devops_candidate_a6",
+
+  // Embedded Engineers
+  embedded_candidate_a1: "embedded_candidate_a1",
+  embedded_candidate_a2: "embedded_candidate_a2",
+  embedded_candidate_a3: "embedded_candidate_a3",
+  embedded_candidate_a4: "embedded_candidate_a4",
+  embedded_candidate_a5: "embedded_candidate_a5",
+  embedded_candidate_a6: "embedded_candidate_a6",
+
+  // Full Stack Engineers
+  full_stack_candidate_a1: "full_stack_candidate_a1",
+  full_stack_candidate_a2: "full_stack_candidate_a2",
+  full_stack_candidate_a3: "full_stack_candidate_a3",
+  full_stack_candidate_a4: "full_stack_candidate_a4",
+  full_stack_candidate_a5: "full_stack_candidate_a5",
+  full_stack_candidate_a6: "full_stack_candidate_a6",
+
+  // Security Engineers
+  security_candidate_a1: "security_candidate_a1",
+  security_candidate_a2: "security_candidate_a2",
+  security_candidate_a3: "security_candidate_a3",
+}
+
+async function fetchFromVercelBlob(fileName: string): Promise<{
+  buffer: ArrayBuffer
+  contentType: string
+  fileExtension: string
+  originalUrl: string
+} | null> {
+  // Try both PDF and DOCX extensions
+  const extensions = ["pdf", "docx"]
+
+  for (const ext of extensions) {
+    try {
+      const blobUrl = `${VERCEL_BLOB_BASE_URL}/${fileName}.${ext}`
+
+      console.log(`Attempting to fetch: ${blobUrl}`)
+
+      const response = await fetch(blobUrl, {
+        method: "GET",
+        headers: {
+          "Cache-Control": "no-cache",
+        },
+      })
+
+      if (response.ok) {
+        const buffer = await response.arrayBuffer()
+        const contentType =
+          ext === "pdf" ? "application/pdf" : "application/vnd.openxmlformats-officedocument.wordprocessingml.document"
+
+        console.log(`Successfully fetched ${fileName}.${ext} (${buffer.byteLength} bytes)`)
+
+        return {
+          buffer,
+          contentType,
+          fileExtension: ext,
+          originalUrl: blobUrl,
+        }
+      } else {
+        console.log(`File not found: ${blobUrl} (Status: ${response.status})`)
+      }
+    } catch (error) {
+      console.warn(`Failed to fetch ${fileName}.${ext}:`, error)
+      continue
+    }
+  }
+
+  return null
+}
+
 export async function GET(request: NextRequest, { params }: { params: { candidateId: string } }) {
   try {
     const { candidateId } = params
 
-    // Create a proper resume content
-    const resumeContent = generateResumeContent(candidateId)
+    console.log(`Download request for candidate: ${candidateId}`)
 
-    // Create response with proper headers for DOCX download
-    const response = new NextResponse(resumeContent, {
+    // Get the actual filename from mapping
+    const fileName = CANDIDATE_FILE_MAPPING[candidateId]
+    if (!fileName) {
+      console.error(`Candidate ID not found: ${candidateId}`)
+      return NextResponse.json(
+        {
+          error: "Candidate not found",
+          candidateId,
+          availableCandidates: Object.keys(CANDIDATE_FILE_MAPPING),
+        },
+        { status: 404 },
+      )
+    }
+
+    console.log(`Mapped ${candidateId} to filename: ${fileName}`)
+
+    // Fetch file from Vercel Blob Storage
+    const fileData = await fetchFromVercelBlob(fileName)
+
+    if (!fileData) {
+      console.error(`File not found for ${candidateId} (${fileName})`)
+      return NextResponse.json(
+        {
+          error: "Resume file not found in Vercel Blob Storage",
+          candidateId,
+          fileName,
+          attemptedUrls: [`${VERCEL_BLOB_BASE_URL}/${fileName}.pdf`, `${VERCEL_BLOB_BASE_URL}/${fileName}.docx`],
+        },
+        { status: 404 },
+      )
+    }
+
+    console.log(`Serving file: ${fileData.originalUrl}`)
+
+    // Create response with proper headers for download
+    const response = new NextResponse(fileData.buffer, {
       status: 200,
       headers: {
-        "Content-Type": "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
-        "Content-Disposition": `attachment; filename="${candidateId}_resume.docx"`,
-        "Cache-Control": "no-cache",
+        "Content-Type": fileData.contentType,
+        "Content-Disposition": `attachment; filename="${fileName}_resume.${fileData.fileExtension}"`,
+        "Content-Length": fileData.buffer.byteLength.toString(),
+        "Cache-Control": "public, max-age=3600",
+        "Access-Control-Allow-Origin": "*",
+        "Access-Control-Allow-Methods": "GET",
+        "Access-Control-Allow-Headers": "Content-Type",
       },
     })
 
     return response
   } catch (error) {
     console.error("Resume download error:", error)
-    return NextResponse.json({ error: "Failed to generate resume" }, { status: 500 })
+    return NextResponse.json(
+      {
+        error: "Failed to download resume from Vercel Blob Storage",
+        details: error instanceof Error ? error.message : "Unknown error",
+        candidateId: params.candidateId,
+        timestamp: new Date().toISOString(),
+      },
+      { status: 500 },
+    )
   }
-}
-
-function generateResumeContent(candidateId: string): Buffer {
-  // Create a simple text-based resume content
-  // In a real application, you would use a library like docx to create proper DOCX files
-  const resumeText = `
-RESUME - ${candidateId.toUpperCase()}
-
-CONTACT INFORMATION
-Email: info@arcadianetwork.io
-Phone: +49 178 603 2 432
-Location: Munich, Germany
-
-PROFESSIONAL SUMMARY
-Experienced software professional with expertise in modern technologies and best practices.
-Strong background in software development, problem-solving, and team collaboration.
-
-TECHNICAL SKILLS
-- Programming Languages: JavaScript, TypeScript, Python
-- Frameworks: React, Node.js, Next.js
-- Databases: PostgreSQL, MongoDB
-- Cloud: AWS, GCP, Azure
-- Tools: Docker, Kubernetes, Git
-
-EXPERIENCE
-Senior Software Engineer (2020 - Present)
-- Led development of scalable web applications
-- Mentored junior developers
-- Implemented best practices and code reviews
-
-Software Engineer (2018 - 2020)
-- Developed full-stack applications
-- Collaborated with cross-functional teams
-- Participated in agile development processes
-
-EDUCATION
-Bachelor's Degree in Computer Science
-Technical University of Munich
-
-CERTIFICATIONS
-- AWS Certified Solutions Architect
-- Google Cloud Professional Developer
-- Certified Kubernetes Administrator
-
----
-Generated by Arcadia Network
-Munich, Germany
-info@arcadianetwork.io
-+49 178 603 2 432
-`
-
-  // Convert text to buffer (in a real app, you'd create a proper DOCX file)
-  return Buffer.from(resumeText, "utf-8")
 }
